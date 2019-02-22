@@ -26,8 +26,6 @@ import java.util.Set;
  * 用户表 服务实现类
  * </p>
  *
- * @author yukong
- * @since 2018-10-08
  */
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {

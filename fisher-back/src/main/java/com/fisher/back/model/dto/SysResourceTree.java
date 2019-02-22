@@ -6,8 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * @author: yukong
- * @date: 2018/10/17 13:35
  * @description: 资源树
  */
 @Data

@@ -12,8 +12,6 @@ import java.time.LocalDateTime;
  * 角色表
  * </p>
  *
- * @author yukong
- * @since 2018-10-16
  */
 @Data
 @Accessors(chain = true)

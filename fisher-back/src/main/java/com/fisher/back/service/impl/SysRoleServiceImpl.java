@@ -18,10 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-/**
- * @author: yukong
- * @date: 2018/11/1 15:42
- */
+
 @Service
 public class SysRoleServiceImpl  extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
 

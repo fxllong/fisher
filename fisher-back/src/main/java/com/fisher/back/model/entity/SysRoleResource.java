@@ -7,9 +7,6 @@ import lombok.experimental.Accessors;
  * <p>
  * 角色资源关联表
  * </p>
- *
- * @author yukong
- * @since 2018-10-16
  */
 @Data
 @Accessors(chain = true)

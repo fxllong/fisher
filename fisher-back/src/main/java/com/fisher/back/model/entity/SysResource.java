@@ -11,9 +11,6 @@ import java.time.LocalDateTime;
  * <p>
  * 资源表(菜单与按钮)
  * </p>
- *
- * @author yukong
- * @since 2018-10-16
  */
 @Data
 @Accessors(chain = true)

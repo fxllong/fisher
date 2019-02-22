@@ -8,8 +8,6 @@ import lombok.experimental.Accessors;
  * oauth2客户端资源认证表
  * </p>
  *
- * @author yukong
- * @since 2018-12-13
  */
 @Data
 @Accessors(chain = true)

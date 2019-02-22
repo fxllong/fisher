@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * @author: yukong
- * @date: 2018/10/12 10:19
  * @description: 异常json序列化方式
  */
 public class CustomOauthExceptionSerializer extends StdSerializer<CustomOauth2Exception> {

@@ -141,7 +141,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                         .setStatus(OperationStatusEnum.SUCCESS.getCode())
                         .setModuleName("auth认证模块")
                         .setActionName("登录")
-                        .setServiceId(PandaServiceNameConstants.PANDA_AUTH)
+                        .setServiceId(PandaServiceNameConstants.FISHER_AUTH)
                         .setRemoteAddr(UrlUtil.getRemoteHost(request))
                         .setMethod(request.getMethod());
 //                rabbitTemplate.convertAndSend(MqQueueNameConstant.SYS_LOG_QUEUE, sysLogDTO);

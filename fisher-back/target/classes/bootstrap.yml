@@ -2,7 +2,7 @@ server:
   port: 9001
 spring:
   application:
-    name: panda-user-service
+    name: fisher-user-service
   datasource:
     url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
     driver-class-name: com.mysql.jdbc.Driver

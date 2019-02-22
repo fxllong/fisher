@@ -20,8 +20,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author: yukong
- * @date: 2018/10/17 14:57
  * @description: 系统资源服务实现类
  */
 @Service

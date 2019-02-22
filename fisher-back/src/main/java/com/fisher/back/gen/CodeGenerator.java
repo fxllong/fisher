@@ -16,8 +16,6 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @author: yukong
- * @date: 2018/10/8 15:43
  * @description: 代码生成器
  */
 public class CodeGenerator {

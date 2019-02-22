@@ -2,7 +2,7 @@ server:
   port: 8761
 spring:
   application:
-    name: panda-server
+    name: fisher-server
   profiles:
     active: dev
 

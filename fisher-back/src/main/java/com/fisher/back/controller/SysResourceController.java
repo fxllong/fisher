@@ -62,7 +62,7 @@ public class SysResourceController {
         return new ApiResult<>(list);
     }
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "添加资源信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "添加资源信息")
     @ApiOperation(value = "添加资源信息", notes = "添加资源信息", httpMethod = "POST")
     @ApiImplicitParam(name = "sysResource", value = "资源信息", required = true, dataType = "SysResource")
     @PostMapping
@@ -70,7 +70,7 @@ public class SysResourceController {
         return new ApiResult(sysResourceService.save(sysResource));
     }
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改资源信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改资源信息")
     @ApiOperation(value = "修改资源信息", notes = "修改资源信息", httpMethod = "PUT")
     @ApiImplicitParam(name = "sysResource", value = "资源信息", required = true, dataType = "SysResource")
     @PutMapping
@@ -87,7 +87,7 @@ public class SysResourceController {
     }
 
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据id删除资源信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据id删除资源信息")
     @ApiOperation(value = "删除资源信息", notes = "根据id删除资源信息", httpMethod = "DELETE")
     @ApiImplicitParam(name = "id", value = "资源id", required = true, dataType = "integer")
     @DeleteMapping("/id/{id}")

@@ -11,9 +11,6 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @date: 2018/11/13 11:17
- */
 @Component
 @Primary
 public class DocumentationConfig implements SwaggerResourcesProvider {

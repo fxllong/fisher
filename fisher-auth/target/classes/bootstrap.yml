@@ -2,7 +2,7 @@ server:
   port: 6868
 spring:
   application:
-    name: panda-auth
+    name: fisher-auth
   datasource:
     url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
     driver-class-name: com.mysql.jdbc.Driver
@@ -18,18 +18,9 @@ spring:
       minimum-idle: 0
   profiles:
     active: dev
-  #  cloud:
-  #    config:
-  #      discovery:
-  #        service-id: panda-config-server
-  #        enabled: true
-  #      fail-fast: true
-  #      profile: ${spring.profiles.active}
-  #      label: ${spring.profiles.active}
-  #      name: ${spring.application.name}
 logging:
   level:
-    com.yukong.panda.auth.service.SysUserService: debug
+    com.fisher.auth.service.SysUserService: debug
   tomcat:
     max-threads: 500 # Maximum amount of worker threads.
     min-spare-threads: 50 # Minimum amount of worker threads
@@ -54,7 +45,7 @@ redis:
 ribbon:
   eager-load:
     enabled: true
-    clients: panda-auth,panda-user-service
+    clients: fisher-auth,fisher-user-service
   Httpclient:
     enabled: true
   OkHttp:

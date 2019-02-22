@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Set;
 
-@FeignClient(value = PandaServiceNameConstants.PANDA_USER_SERVICE, fallback = SysResourceFallback.class)
+@FeignClient(value = PandaServiceNameConstants.FISHER_USER_SERVICE, fallback = SysResourceFallback.class)
 public interface SysResourceService {
 
     /**

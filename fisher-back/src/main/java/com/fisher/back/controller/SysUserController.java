@@ -27,11 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author: yukong
- * @date: 2018/10/9 16:41
- * @description:
- */
+
 @Slf4j
 @RestController
 @RequestMapping("/user")
@@ -88,7 +84,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.pageUserVoByQuery(query));
     }
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
     @ApiOperation(value = "添加用户", notes = "添加用户信息  带角色信息", httpMethod = "POST")
     @ApiImplicitParam(name = "sysUserVo", value = "用户信息", required = true, dataType = "SysUserVo")
     @PostMapping
@@ -96,7 +92,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.save(sysUserVo));
     }
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改用户信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改用户信息")
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息 带角色信息", httpMethod = "PUT")
     @ApiImplicitParam(name = "sysUserVo", value = "用户信息", required = true, dataType = "SysUserVo")
     @PutMapping
@@ -104,7 +100,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.update(sysUserVo));
     }
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "删除用户信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "删除用户信息")
     @ApiOperation(value = "删除用户信息", notes = "删除用户信息", httpMethod = "DELETE")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "integer")
     @DeleteMapping("/id/{id}")

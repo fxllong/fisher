@@ -30,7 +30,7 @@ public class SysRoleController {
     @Autowired
     private SysRoleService sysRoleService;
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "添加角色")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "添加角色")
     @ApiOperation(value = "添加角色", notes = "角色信息", httpMethod = "POST")
     @ApiImplicitParam(name = "sysRoleDTO", value = "角色信息", required = true, dataType = "SysRoleDTO")
     @PostMapping
@@ -38,7 +38,7 @@ public class SysRoleController {
         return new ApiResult<>(sysRoleService.save(sysRoleDTO));
     }
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改角色")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改角色")
     @ApiOperation(value = "修改角色", notes = "角色信息", httpMethod = "PUT")
     @ApiImplicitParam(name = "sysRoleDTO", value = "角色信息", required = true, dataType = "SysRoleDTO")
     @PutMapping
@@ -46,7 +46,7 @@ public class SysRoleController {
         return new ApiResult<>(sysRoleService.updateById(sysRoleDTO));
     }
 
-    @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "删除角色")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "删除角色")
     @ApiOperation(value = "删除角色", notes = "删除角色信息", httpMethod = "DELETE")
     @ApiImplicitParam(name = "id", value = "角色id", required = true, dataType = "integer")
     @DeleteMapping("/{id}")
