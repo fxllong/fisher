@@ -17,8 +17,7 @@
 >  传送门：[前端项目地址](https://github.com/fanxinglong/fisher-admin) 
 
 ## 技术栈
-Spirng cloud Eureka
-Spirng cloud Zuul
+Spirng cloud
 
 ## 项目运行
 
