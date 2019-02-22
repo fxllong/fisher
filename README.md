@@ -4,7 +4,16 @@
 # About
 
 此项目是 Spring cloud Oauth2 构建的后台管理系统
+
+- fisher-server Eureka服务注册中心
+- fisher-common 公共模块
+- fisher-auth  oauth2 认证服务器 提供token
+- fisher-back 后台管理模块
+- fisher-gateway 统一入口，提供动态路由 同时也是oauth2的资源服务器
+
+
 # 说明
+![index](https://github.com/YuKongEr/panda/blob/master/imgs/code.png)
 
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
