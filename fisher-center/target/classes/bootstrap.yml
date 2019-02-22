@@ -1,0 +1,38 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: panda-server
+  profiles:
+    active: dev
+
+
+---
+spring:
+  profiles: dev
+eureka:
+  instance:
+    preferIpAddress: true
+    ip-address: 127.0.0.1
+  client:
+    # 是否将自己注册到eureka上去
+    register-with-eureka: true
+    # 是否从eureka上拉取已注册服务列表
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
+
+---
+spring:
+  profiles: prod
+eureka:
+  instance:
+    preferIpAddress: true
+    ip-address: 193.112.100.103
+  client:
+    # 是否将自己注册到eureka上去
+    register-with-eureka: true
+    # 是否从eureka上拉取已注册服务列表
+    fetch-registry: false
+    service-url:
+      defaultZone: http://193.112.100.103:${server.port}/eureka/

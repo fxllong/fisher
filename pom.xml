@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fisher</groupId>
+    <artifactId>fisher</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>fisher-center</module>
+        <module>fisher-auth</module>
+        <module>fisher-back</module>
+        <module>fisher-common</module>
+        <module>fisher-gateway</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <guava-version>20.0</guava-version>
+        <jjwt-version>0.9.0</jjwt-version>
+        <mybatis-plus-starter.version>3.0.1</mybatis-plus-starter.version>
+        <mysql-connector.version>5.1.46</mysql-connector.version>
+        <swagger.version>2.9.2</swagger.version>
+        <gson.version>2.8.2</gson.version>
+        <spring.serurity.version>5.0.8.RELEASE</spring.serurity.version>
+        <qcloudsms.version>1.0.5</qcloudsms.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+
+</project>

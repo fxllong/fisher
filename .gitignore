@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+
+# for IDEA
+*/build/*
+.idea/*
+*.iml
+/out/*

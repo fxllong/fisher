@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fisher.back.mapper.SysUserMapper">
+
+    <resultMap id="userResultMap" type="com.fisher.back.model.entity.SysUser">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="mobile" property="mobile"/>
+        <result column="qq" property="qq"/>
+        <result column="wechat" property="wechat"/>
+        <result column="weibo" property="weibo"/>
+        <result column="avatar" property="avatar"/>
+        <result column="qq_openid" property="qqOpenid"/>
+        <result column="wechat_openid" property="wechatOpenid"/>
+        <result column="weibo_openid" property="wechatOpenid"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="del_flag" property="delFlag"/>
+    </resultMap>
+
+    <!-- SysUserVo 结果集 -->
+    <resultMap id="userVOResultMap" type="com.fisher.common.vo.SysUserVo">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="mobile" property="mobile"/>
+        <result column="qq" property="qq"/>
+        <result column="wechat" property="wechat"/>
+        <result column="weibo" property="weibo"/>
+        <result column="avatar" property="avatar"/>
+        <result column="qq_openid" property="qqOpenid"/>
+        <result column="wechat_openid" property="wechatOpenid"/>
+        <result column="weibo_openid" property="wechatOpenid"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="del_flag" property="delFlag"/>
+
+        <collection property="sysRoleVoList" ofType="com.fisher.common.vo.SysRoleVo">
+            <id column="role_id" property="roleId"/>
+            <result column="role_code" property="roleCode"/>
+            <result column="role_name" property="roleName"/>
+            <result column="rcreate_time" property="createTime"/>
+            <result column="rmodify_time" property="modifyTime"/>
+            <result column="rdel_flag" property="delFlag"/>
+        </collection>
+    </resultMap>
+    <select id="pageUserVoByQuery" resultMap="userVOResultMap" parameterType="com.fisher.back.model.query.SysUserVoQuery">
+        select
+             u.user_id,
+             u.username,
+             u.password,
+             u.email,
+             u.mobile,
+             u.qq,
+             u.wechat,
+             u.weibo,
+             u.avatar,
+             u.qq_openid,
+             u.wechat_openid,
+             u.weibo_openid,
+             u.create_time,
+             u.modify_time,
+             u.del_flag,
+             sr.role_id,
+             sr.role_name,
+             sr.role_code,
+             sr.create_time as rcreate_time,
+             sr.modify_time as rmodify_time,
+             sr.del_flag as rdel_flag
+         from
+             sys_user as u
+             left join sys_user_role as sur on sur.user_id = u.user_id
+             left join sys_role as sr on sr.role_id = sur.role_id
+         <where>
+             <if test="username != null and username != ''">
+                 u.username like concat('%', #{username}, '%')
+             </if>
+         </where>
+    </select>
+
+
+    <select id="loadUserByUsername" resultMap="userVOResultMap">
+         select
+             u.user_id,
+             u.username,
+             u.password,
+             u.email,
+             u.mobile,
+             u.qq,
+             u.wechat,
+             u.weibo,
+             u.avatar,
+             u.qq_openid,
+             u.wechat_openid,
+             u.weibo_openid,
+             u.create_time,
+             u.modify_time,
+             u.del_flag,
+             sr.role_id,
+             sr.role_name,
+             sr.role_code,
+             sr.create_time as rcreate_time,
+             sr.modify_time as rmodify_time,
+             sr.del_flag as rdel_flag
+         from
+             sys_user as u
+             left join sys_user_role as sur on sur.user_id = u.user_id
+             left join sys_role as sr on sr.role_id = sur.role_id
+          where u.username = #{username}
+
+    </select>
+
+    <select id="loadUserByMobile" resultMap="userVOResultMap">
+        select
+               u.user_id,
+               u.username,
+               u.password,
+               u.email,
+               u.mobile,
+               u.qq,
+               u.wechat,
+               u.weibo,
+               u.avatar,
+               u.qq_openid,
+               u.wechat_openid,
+               u.weibo_openid,
+               u.create_time,
+               u.modify_time,
+               u.del_flag,
+               sr.role_id,
+               sr.role_name,
+               sr.role_code,
+               sr.create_time as rcreate_time,
+               sr.modify_time as rmodify_time,
+               sr.del_flag as rdel_flag
+        from
+             sys_user as u
+                 left join sys_user_role as sur on sur.user_id = u.user_id
+                 left join sys_role as sr on sr.role_id = sur.role_id
+        where u.mobile = #{mobile}
+
+    </select>
+    <select id="countUserByQuery" resultType="java.lang.Integer">
+        select
+          count(1)
+        from
+          sys_user u
+        <where>
+            <if test="username != null and username != ''">
+                u.username like concat('%', #{username}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fisher.back.mapper.SysRoleMapper">
+
+    <select id="pageByQuery" resultType="com.fisher.back.model.entity.SysRole">
+
+        select * from sys_role
+        <where>
+            <if test="roleName != '' and roleName != null">
+                and   role_name like concat('%',#{roleName},'%')
+            </if>
+            <if test="roleCode != '' and roleCode != null">
+                and   role_code = #{roleCode}
+            </if>
+        </where>
+
+    </select>
+</mapper>
