@@ -248,8 +248,8 @@ LOCK TABLES `sys_zuul_route` WRITE;
 
 INSERT INTO `sys_zuul_route` (`id`, `path`, `service_id`, `url`, `strip_prefix`, `retryable`, `enabled`, `sensitiveHeaders_list`, `create_time`, `update_time`, `del_flag`)
 VALUES
-	(4,'/admin/**','panda-user-service','','1','1','1','','2018-05-21 11:40:38','2018-10-17 17:03:36','0'),
-	(5,'/auth/**','panda-auth','','1','1','1','','2018-05-21 11:41:08','2018-10-16 09:45:48','0');
+	(4,'/admin/**','fisher-user-service','','1','1','1','','2018-05-21 11:40:38','2018-10-17 17:03:36','0'),
+	(5,'/auth/**','fisher-auth','','1','1','1','','2018-05-21 11:41:08','2018-10-16 09:45:48','0');
 
 /*!40000 ALTER TABLE `sys_zuul_route` ENABLE KEYS */;
 UNLOCK TABLES;
