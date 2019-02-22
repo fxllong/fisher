@@ -190,14 +190,12 @@ CREATE TABLE `sys_user` (
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
 
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `mobile`, `qq`, `wechat`, `weibo`, `avatar`, `qq_openid`, `wechat_openid`, `weibo_openid`, `create_time`, `modify_time`, `del_flag`)
-VALUES
-	(50,X'79756B6F6E67',X'24326124313024326B56374E356B6C6749753646305362485646704A7576682F597A772F6C55734851454B47643166314530716371536E3342713379',NULL,X'3135303739313535363134',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2018-10-09 17:13:18',X'30'),
-	(51,X'61646D696E',X'24326124313024326B56374E356B6C6749753646305362485646704A7576682F597A772F6C55734851454B47643166314530716371536E3342713379',NULL,X'3133383638373232393133',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-11-05 16:34:58','2018-11-05 16:35:14',X'30');
 
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
-
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `mobile`, `qq`, `wechat`, `weibo`, `avatar`, `qq_openid`, `wechat_openid`, `weibo_openid`, `create_time`, `modify_time`, `del_flag`)
+VALUES  (4,'fisher','$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y',NULL,'13567563347',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2018-10-09 17:13:18','0'),
+(5,'fisher2','$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y',NULL,'13567562947',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2018-10-09 17:13:18','0');
 
 # Dump of table sys_user_role
 # ------------------------------------------------------------
