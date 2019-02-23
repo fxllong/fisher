@@ -1,6 +1,7 @@
 # fisher
 基于Spring cloud Oauth2和Element-UI-Admin的后台权限管理框架
-感兴趣可以加QQ群：591363691
+- 感兴趣可以加QQ群：591363691
+
 # About
 
 此项目是 Spring cloud Oauth2 构建的后台管理系统
