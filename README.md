@@ -39,8 +39,8 @@ git clone https://github.com/fanxinglong/fisher-admin
 
 先配置数据库，然后reids，需要启动rabbitmq
 
-启动顺序：
-fisher-server
+启动顺序：一定要按顺序启动
+先启动Nacos
 fisher-auth
 fisher-back
 fisher-log
