@@ -17,6 +17,7 @@
 - 权限认证：Spring secruity oauth2
 - 部署：docker+rancher1.6
 
+# 项目结构说明
 - fisher-center Eureka服务注册中心,该工程已经删除
   注册中心已替换成Nacos
 - fisher-common 公共模块
