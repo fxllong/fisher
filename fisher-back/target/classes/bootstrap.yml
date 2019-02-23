@@ -18,15 +18,6 @@ spring:
       minimum-idle: 0
   profiles:
     active: dev
-#  cloud:
-#    config:
-#      discovery:
-#        enabled: true
-#        service-id: panda-config-server
-#      profile: ${spring.profiles.active}
-#      label: ${spring.profiles.active}
-#      fail-fast: true
-#      name: ${spring.application.name}
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
@@ -84,16 +75,6 @@ logging:
 redis:
   cache:
     expiration: 3601
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    clients: panda-auth,panda-user-service
-#  Httpclient:
-#    enabled: true
-#  OkHttp:
-#    enabled: false
-#  ReadTimeout: 10000
-#  ConnectTimeout: 10000
 
 feign:
   hystrix:
@@ -128,10 +109,7 @@ timeoutInMilliseconds: 60000
 ---
 spring:
   profiles: dev
-eureka:
-  instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

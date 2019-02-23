@@ -15,10 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author yukong
- * @date 2018年11月01日15:15:54
- */
 @RestController
 @RequestMapping("/role")
 @Api(value = "角色controller", tags = {"角色操作接口"})

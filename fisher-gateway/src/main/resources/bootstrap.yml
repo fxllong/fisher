@@ -2,7 +2,7 @@ server:
   port: 2004
 spring:
   application:
-    name: api-gateway-dynamic
+    name: api-gateway
   profiles:
     active: dev
   datasource:
@@ -106,10 +106,7 @@ zuul:
 ---
 spring:
   profiles: dev
-eureka:
-  instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

@@ -189,13 +189,9 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
-
-
+INSERT INTO `sys_user` VALUES ('50', 'fisher', '$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y', null, '15079155614', null, null, null, null, null, null, null, '2018-10-08 16:45:43', '2019-02-22 15:22:44', '0');
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `mobile`, `qq`, `wechat`, `weibo`, `avatar`, `qq_openid`, `wechat_openid`, `weibo_openid`, `create_time`, `modify_time`, `del_flag`)
-VALUES  (4,'fisher','$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y',NULL,'13567563347',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2018-10-09 17:13:18','0'),
-(5,'fisher2','$2a$10$2kV7N5klgIu6F0SbHVFpJuvh/Yzw/lUsHQEKGd1f1E0qcqSn3Bq3y',NULL,'13567562947',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2018-10-09 17:13:18','0');
 
 # Dump of table sys_user_role
 # ------------------------------------------------------------
