@@ -10,6 +10,7 @@
 - fisher-common 公共模块
 - fisher-auth  oauth2 认证服务器 提供token
 - fisher-back 后台管理模块
+- fisher-starter 自定义封装各种starer 目前封装了日志处理
 - fisher-gateway 统一入口，提供动态路由 同时也是oauth2的资源服务器
 
 
@@ -35,7 +36,7 @@ Spirng cloud
 ```
 git clone https://github.com/fanxinglong/fisher-admin
 
-先配置数据库，然后reids
+先配置数据库，然后reids，需要启动rabbitmq
 
 启动顺序：
 fisher-server
