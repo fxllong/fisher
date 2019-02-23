@@ -8,7 +8,7 @@
 - 注册中心：Nacos
 - 服务网关：Spring cloud-Gateway
 - 配置中心：Nacos
-- 服务调用：Spring-cloud-opne-Feign
+- 服务调用：Spring-cloud-open-Feign
 - 负载均衡：Spring-cloud-loadbalancer
 - 熔断降级：Sentinel
 - 链路追踪：Skywalking
