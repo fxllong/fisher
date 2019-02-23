@@ -9,6 +9,7 @@ public interface PandaServiceNameConstants {
     String FISHER_GATEWAY = "FISHER_GATEWAY";
     String FISHER_SERVER = "FISHER_SERVER";
     String FISHER_USER_SERVICE = "FISHER_USER_SERVICE";
+    String FISHER_LOG_SERVICE = "FISHER_LOG_SERVICE";
     String FISHER_GEN_SERVICE = "FISHER_GEN_SERVICE";
 
 }

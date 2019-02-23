@@ -13,6 +13,8 @@
         <module>fisher-back</module>
         <module>fisher-common</module>
         <module>fisher-gateway</module>
+        <module>fisher-log</module>
+        <module>fisher-starter</module>
     </modules>
 
     <parent>

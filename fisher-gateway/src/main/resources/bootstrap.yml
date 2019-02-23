@@ -21,6 +21,9 @@ spring:
   tomcat:
     max-threads: 500 # Maximum amount of worker threads.
     min-spare-threads: 50 # Minimum amount of worker threads
+logging:
+  level:
+    com.fisher.gateway.feign.SysResourceService: debug
 
   redis:
     host: localhost
@@ -49,7 +52,6 @@ ribbon:
     enabled: false
   ReadTimeout: 10000
   ConnectTimeout: 10000
-
 feign:
   hystrix:
     enabled: true
@@ -85,6 +87,7 @@ ignore:
   urls:
     - /**/*.css
     - /auth/**
+    - /syslog/**
     - /admin/user/**
     - /admin/resource/**
     - /admin/role/**
@@ -101,6 +104,7 @@ swagger:
 # 关闭默认路由
 zuul:
   ignoredServices: '*'
+  sensitiveHeaders:
 
 
 ---

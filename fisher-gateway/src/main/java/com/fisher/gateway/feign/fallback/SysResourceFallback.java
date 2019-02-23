@@ -13,7 +13,7 @@ import java.util.Set;
 public class SysResourceFallback implements SysResourceService {
     @Override
     public Set<SysResourceVO> listResourceByRole(String roleCode) {
-        log.error("调用【panda-user-service】服务接口【/resource/role/{}】异常", roleCode);
+        log.error("调用【fisher-user-service】服务接口【/resource/role/{}】异常", roleCode);
         return Collections.emptySet();
     }
 }

@@ -46,7 +46,7 @@ public class SysUserController {
     private RedisTemplate<String, Object> redisTemplate;
 
 
-  //  @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token获取用户信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token获取用户信息")
     @ApiOperation(value = "获取用户信息", notes = "用户详细信息，附带角色信息，权限信息", httpMethod = "GET")
     @GetMapping("/info")
     public ApiResult<SysUserInfoDTO> getInfo(){
@@ -55,7 +55,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.getUserInfo(userId, roles));
     }
 
-  //  @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据用户名获取用户信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据用户名获取用户信息")
     @ApiOperation(value = "根据用户名获取用户信息", notes = "用户详细信息，附带角色信息，权限信息", httpMethod = "GET")
     @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
     @GetMapping("/loadUserByUsername/{username}")
@@ -76,7 +76,7 @@ public class SysUserController {
         return new ApiResult<>(UserUtil.getRoles(request));
     }
 
- //   @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
     @ApiOperation(value = "获取用户信息 分页查询", notes = "用户信息分页查询", httpMethod = "GET")
     @ApiImplicitParam(name = "query", value = "用户信息查询条件", required = false, dataType = "SysUserVoQuery")
     @GetMapping("/page")
@@ -108,7 +108,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.delete(id));
     }
 
-  //  @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "主键查询用户信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "主键查询用户信息")
     @ApiOperation(value = "主键查询用户信息", notes = "查询用户信息", httpMethod = "GET")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "integer")
     @GetMapping("/id/{id}")

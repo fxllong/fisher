@@ -50,7 +50,7 @@ public class SysRoleController {
         return new ApiResult<>(sysRoleService.deleteById(id));
     }
 
- //   @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "查询角色信息以及相关联的资源信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "查询角色信息以及相关联的资源信息")
     @ApiOperation(value = "查询角色信息", notes = "查询角色信息以及相关联的资源信息", httpMethod = "GET")
     @ApiImplicitParam(name = "id", value = "角色id", required = true, dataType = "integer")
     @GetMapping("/{id}")
@@ -58,7 +58,7 @@ public class SysRoleController {
         return new ApiResult<>(sysRoleService.getRoleInfoWithResourceById(id));
     }
 
-  //  @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "角色信息分页查询")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "角色信息分页查询")
     @ApiOperation(value = "角色信息分页查询", notes = "角色信息分页查询", httpMethod = "GET")
     @ApiImplicitParam(name = "sysRoleQuery", value = "角色信息查询类", required = false, dataType = "SysRoleQuery")
     @GetMapping("/page")
@@ -66,7 +66,7 @@ public class SysRoleController {
         return new ApiResult<>(sysRoleService.pageByQuery(sysRoleQuery));
     }
 
- //   @SysLog(serviceId = PandaServiceNameConstants.PANDA_USER_SERVICE, moduleName = MODULE_NAME, actionName = "查询所有角色信息")
+    @SysLog(serviceId = PandaServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "查询所有角色信息")
     @ApiOperation(value = "查询所有角色信息", notes = "查询角色信息", httpMethod = "GET")
     @GetMapping
     public ApiResult<List<SysRole>> listRole(){
