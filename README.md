@@ -5,16 +5,17 @@
 # About
 
 此项目是 Spring cloud Oauth2 构建的后台管理系统
-技术架构：计划采用以下技术
-注册中心：Nacos
-服务网关：Spring cloud-Gateway
-配置中心：Nacos
-服务调用：Spring-cloud-opne-Feign
-负载均衡：Spring-cloud-loadbalancer
-熔断降级：Sentinel
-链路追踪：Skywalking
-消息队列：RabbitMQ
-权限认证：Spring secruity oauth2
+- 技术架构：计划采用以下技术
+- 注册中心：Nacos
+- 服务网关：Spring cloud-Gateway
+- 配置中心：Nacos
+- 服务调用：Spring-cloud-opne-Feign
+- 负载均衡：Spring-cloud-loadbalancer
+- 熔断降级：Sentinel
+- 链路追踪：Skywalking
+- 消息队列：RabbitMQ
+- 权限认证：Spring secruity oauth2
+- 部署：docker+rancher1.6
 
 - fisher-center Eureka服务注册中心,该工程已经删除
   注册中心已替换成Nacos
