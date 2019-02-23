@@ -5,7 +5,8 @@
 
 此项目是 Spring cloud Oauth2 构建的后台管理系统
 
-- fisher-center Eureka服务注册中心
+- fisher-center Eureka服务注册中心,该工程已经删除
+  注册中心已替换成Nacos
 - fisher-common 公共模块
 - fisher-auth  oauth2 认证服务器 提供token
 - fisher-back 后台管理模块
