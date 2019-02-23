@@ -4,8 +4,7 @@
 
 # About
 
-此项目是 Spring cloud Oauth2 构建的后台管理系统
-- 技术架构：计划采用以下技术
+此项目是 Spring cloud Oauth2 构建的后台管理系统，计划采用以下技术
 - 注册中心：Nacos
 - 服务网关：Spring cloud-Gateway
 - 配置中心：Nacos
