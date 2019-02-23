@@ -43,6 +43,7 @@ git clone https://github.com/fanxinglong/fisher-admin
 fisher-server
 fisher-auth
 fisher-back
+fisher-log
 fisher-gateway
 
 前端启动参照前端项目
