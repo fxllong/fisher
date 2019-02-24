@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: fisher-user-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: fisher
+    password: fisher
   datasource:
     url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
     driver-class-name: com.mysql.jdbc.Driver

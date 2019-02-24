@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: api-gateway
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: fisher
+    password: fisher
   profiles:
     active: dev
   datasource:

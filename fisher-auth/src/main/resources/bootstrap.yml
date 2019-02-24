@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: fisher-auth
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: fisher
+    password: fisher
   datasource:
     url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
     driver-class-name: com.mysql.jdbc.Driver
@@ -29,12 +34,6 @@ logging:
     host: 127.0.0.1
     port: 6379
     password:
-
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
 #  http:
 #    multipart:
 #      max-file-size: 1000MB
