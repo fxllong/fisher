@@ -248,8 +248,42 @@ VALUES
 /*!40000 ALTER TABLE `sys_zuul_route` ENABLE KEYS */;
 UNLOCK TABLES;
 
+-- ----------------------------
+-- Table structure for sys_log
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_log`;
+CREATE TABLE `sys_log` (
+                         `id` bigint(64) NOT NULL AUTO_INCREMENT COMMENT '主键',
+                         `type` char(1) DEFAULT '1' COMMENT '日志类型',
+                         `status` char(1) NOT NULL DEFAULT '0' COMMENT '操作状态  0 成功 1 失败',
+                         `module_name` varchar(255) DEFAULT '' COMMENT '模块名',
+                         `action_name` varchar(255) DEFAULT '' COMMENT '操作名',
+                         `service_id` varchar(32) DEFAULT NULL COMMENT '服务ID',
+                         `remote_addr` varchar(255) DEFAULT NULL COMMENT '操作IP地址',
+                         `user_agent` varchar(1000) DEFAULT NULL COMMENT '用户代理',
+                         `request_uri` varchar(255) DEFAULT NULL COMMENT '请求URI',
+                         `method` varchar(10) DEFAULT NULL COMMENT '操作方式',
+                         `params` text COMMENT '操作提交的数据',
+                         `time` mediumtext COMMENT '执行时间',
+                         `exception` text COMMENT '异常信息',
+                         `del_flag` char(1) DEFAULT '0' COMMENT '删除标记',
+                         `create_by` varchar(64) DEFAULT NULL COMMENT '创建者',
+                         `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                         `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+                         PRIMARY KEY (`id`),
+                         KEY `sys_log_create_by` (`create_by`),
+                         KEY `sys_log_request_uri` (`request_uri`),
+                         KEY `sys_log_type` (`type`),
+                         KEY `sys_log_create_date` (`create_time`)
+) ENGINE=InnoDB AUTO_INCREMENT=326 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='日志表';
 
+BEGIN;
+INSERT INTO `sys_log` VALUES (21, '1', '0', '系统资源模块', '获取所有菜单的树', 'FISHER_USER_SERVICE', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36', '/resource/tree', 'GET', '{}', '102', NULL, '0', 'fisher', '2019-02-14 17:45:28', NULL);
+COMMIT;
 
+-- ----------------------------
+-- Records of sys_log
+-- ----------------------------
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
