@@ -23,6 +23,7 @@
 - fisher-auth  oauth2 认证服务器 提供token
 - fisher-back 后台管理模块
 - fisher-log 日志中心模块
+- fisher-file 文件上传服务
 - fisher-gen 代码生成模块
 - fisher-starter 自定义封装各种starer 目前封装了日志处理
 - fisher-gateway 后端统一入口，提供动态路由，oauth2的资源服务器
@@ -58,6 +59,7 @@ fisher-auth
 fisher-back
 fisher-log
 fisher-gen
+fisher-file 
 fisher-gateway
 
 前端启动参照前端项目
