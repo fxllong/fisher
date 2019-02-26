@@ -22,8 +22,10 @@
 - fisher-common 公共模块
 - fisher-auth  oauth2 认证服务器 提供token
 - fisher-back 后台管理模块
+- fisher-log 日志中心模块
+- fisher-gen 代码生成模块
 - fisher-starter 自定义封装各种starer 目前封装了日志处理
-- fisher-gateway 统一入口，提供动态路由 同时也是oauth2的资源服务器
+- fisher-gateway 后端统一入口，提供动态路由，oauth2的资源服务器
 
 
 # 说明
@@ -55,6 +57,7 @@ git clone https://github.com/fanxinglong/fisher-admin
 fisher-auth
 fisher-back
 fisher-log
+fisher-gen
 fisher-gateway
 
 前端启动参照前端项目
