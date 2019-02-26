@@ -39,7 +39,8 @@ public class GenUtil {
             templates.add("templates/serviceImpl.java.vm");
             templates.add("templates/query.java.vm");
             templates.add("templates/controller.java.vm");
-
+            templates.add("templates/index.js.vm");
+            templates.add("templates/index.vue.vm");
         }
         return templates;
     }
@@ -108,8 +109,17 @@ public class GenUtil {
     public static String getFileName(String template,TableInfoConfig tableInfoConfig) {
         String packagePath = "main" + File.separator + "java" + File.separator
                 + tableInfoConfig.getPackageName().replace(".", File.separator);
+        String frontPath = "ui" + File.separator;
         String resourcesPath = "main" + File.separator + "resources";
         String className = tableInfoConfig.getClassName();
+        if (template.contains("templates/index.js.vm")) {
+            return frontPath + "api" + File.separator + tableInfoConfig.getClassName() + File.separator + toLowerCaseFirstOne(className) + File.separator + "index.js";
+        }
+
+        if (template.contains("templates/index.vue.vm")) {
+            return frontPath + "views" + File.separator + tableInfoConfig.getClassName() + File.separator + toLowerCaseFirstOne(className) + File.separator + "index.vue";
+        }
+
         if (template.contains("templates/Entity.java.vm")) {
             return packagePath + File.separator + className
                     + ".java";
@@ -261,6 +271,7 @@ public class GenUtil {
         map.put("tableInfo", tableConfig);
         map.put("hasBigDecimal", hasBigDecimal);
         map.put("datetime", now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        map.put("secondModuleName", toLowerCaseFirstOne(tableConfig.getClassName()));
         VelocityContext context = new VelocityContext(map);
 
         // 获取模板列表
@@ -279,6 +290,16 @@ public class GenUtil {
             } catch (IOException e) {
                 throw new RuntimeException("渲染模板失败，表名：" + tableConfig.getTableName(), e);
             }
+        }
+
+    }
+
+    //首字母转小写
+    public static String toLowerCaseFirstOne(String s) {
+        if (Character.isLowerCase(s.charAt(0))) {
+            return s;
+        } else {
+            return (new StringBuilder()).append(Character.toLowerCase(s.charAt(0))).append(s.substring(1)).toString();
         }
     }
 }

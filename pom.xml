@@ -16,6 +16,7 @@
         <module>fisher-log</module>
         <module>fisher-starter</module>
         <module>fisher-gen</module>
+        <module>fisher-file</module>
     </modules>
 
     <parent>
