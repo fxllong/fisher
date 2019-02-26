@@ -1,0 +1,32 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: fisher-upload-service
+  servlet:
+    multipart:
+      max-file-size: 5MB
+  profiles:
+    active: dev
+# qiniu配置
+qiniu:
+  AccessKey: mKeiPbEJtEwfoAFWXTfxrYA6WZhddlOtZRMaB01b
+  SecretKey: PdAwclRrBL0nQFXJjowA_O5U9LSp7csmPzVvEUxy
+  Bucket: sdxlldsngfd
+  cdn:
+    prefix: http://pkbnsx71f.bkt.clouddn.com
+#fdfs:
+#  connect-timeout: 600
+#  so-timeout: 2500
+#  thumb-image:
+#    height: 60
+#    width: 60
+#  tracker-list:
+#    - 192.168.82.100:22122
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

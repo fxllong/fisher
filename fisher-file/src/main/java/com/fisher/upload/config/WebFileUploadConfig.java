@@ -1,4 +1,4 @@
-package upload.config;
+package com.fisher.upload.config;
 
 import com.google.gson.Gson;
 import com.qiniu.common.Zone;

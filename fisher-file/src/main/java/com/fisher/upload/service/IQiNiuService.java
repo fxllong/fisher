@@ -1,4 +1,4 @@
-package upload.service;
+package com.fisher.upload.service;
 
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;

@@ -17,8 +17,6 @@ public class BaseController<K extends BaseService<T>, T, P extends Serializable>
     @Autowired
     private K baseService;
 
-
-
     @ApiOperation(value = "添加", httpMethod = "POST")
     @PostMapping
     public ApiResult<Boolean> save(@RequestBody T t){

@@ -1,4 +1,4 @@
-package upload.util;
+package com.fisher.upload.util;
 
 public final class QiNiuPutRet {
     public String key;

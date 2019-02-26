@@ -1,5 +1,7 @@
-package upload.web;
+package com.fisher.upload.web;
 
+import com.fisher.upload.service.IQiNiuService;
+import com.fisher.upload.util.QiNiuPutRet;
 import com.google.gson.Gson;
 import com.qiniu.http.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import upload.service.IQiNiuService;
-import upload.util.QiNiuPutRet;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 
-@RequestMapping("upload")
+@RequestMapping("/upload")
 @RestController
 public class UploadController {
 
