@@ -1,7 +1,7 @@
 package com.fisher.common.constants;
 
 
-public interface PandaServiceNameConstants {
+public interface FisherServiceNameConstants {
 
     String FISHER_AUTH = "FISHER_AUTH";
     String FISHER_COMMON = "FISHER_COMMON";

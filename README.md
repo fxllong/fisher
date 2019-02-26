@@ -27,7 +27,7 @@
 
 
 # 说明
-![index](https://github.com/YuKongEr/panda/blob/master/imgs/code.png)
+![index](https://github.com/fanxinglong/fisher/docs/code.png)
 
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 

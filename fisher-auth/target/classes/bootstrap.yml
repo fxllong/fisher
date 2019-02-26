@@ -1,5 +1,5 @@
 server:
-  port: 6869
+  port: 6868
 spring:
   application:
     name: fisher-auth

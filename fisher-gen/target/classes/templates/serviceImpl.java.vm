@@ -1,0 +1,16 @@
+package ${tableInfo.servicePackageName}.impl;
+
+import com.fisher.common.base.service.impl.BaseServiceImpl;
+import ${tableInfo.mapperPackageName}.${tableInfo.className}Mapper;
+import ${tableInfo.packageName}.${tableInfo.className};
+import ${tableInfo.servicePackageName}.${tableInfo.className}Service;
+import org.springframework.stereotype.Service;
+
+
+/**
+ * @author $tableInfo.authorName
+ */
+@Service
+public class ${tableInfo.className}ServiceImpl extends BaseServiceImpl<$!{tableInfo.className}Mapper, $!{tableInfo.className}> implements $!{tableInfo.className}Service  {
+
+}

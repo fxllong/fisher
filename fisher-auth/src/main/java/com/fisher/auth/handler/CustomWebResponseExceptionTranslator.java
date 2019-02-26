@@ -1,7 +1,7 @@
 package com.fisher.auth.handler;
 
 import com.fisher.auth.exception.CustomOauth2Exception;
-import com.fisher.common.constants.PandaServiceNameConstants;
+import com.fisher.common.constants.FisherServiceNameConstants;
 import com.fisher.common.dto.SysLogDTO;
 import com.fisher.common.enums.OperationStatusEnum;
 import com.fisher.common.enums.SysLogTypeEnum;
@@ -39,7 +39,7 @@ public class CustomWebResponseExceptionTranslator implements WebResponseExceptio
                 .setStatus(OperationStatusEnum.FAIL.getCode())
                 .setModuleName("auth认证模块")
                 .setActionName("登录")
-                .setServiceId(PandaServiceNameConstants.FISHER_AUTH)
+                .setServiceId(FisherServiceNameConstants.FISHER_AUTH)
                 .setRemoteAddr(UrlUtil.getRemoteHost(request))
                 .setMethod(request.getMethod())
                 .setException(UrlUtil.getTrace(e));

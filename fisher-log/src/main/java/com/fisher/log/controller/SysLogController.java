@@ -1,7 +1,7 @@
 package com.fisher.log.controller;
 
 import com.fisher.common.annotation.SysLog;
-import com.fisher.common.constants.PandaServiceNameConstants;
+import com.fisher.common.constants.FisherServiceNameConstants;
 import com.fisher.common.util.ApiResult;
 import com.fisher.log.model.query.SysLogQuery;
 import com.fisher.log.service.SysLogService;
@@ -23,7 +23,7 @@ public class SysLogController {
     @Autowired
     private SysLogService sysLogService;
 
-    @SysLog(serviceId = PandaServiceNameConstants.FISHER_LOG_SERVICE, moduleName = MODULE_NAME, actionName = "日志信息分页查询")
+    @SysLog(serviceId = FisherServiceNameConstants.FISHER_LOG_SERVICE, moduleName = MODULE_NAME, actionName = "日志信息分页查询")
     @ApiOperation(value = "日志信息分页查询", notes = "日志信息分页查询", httpMethod = "GET")
     @ApiImplicitParam(name = "sysLogQuery", value = "日志信息查询类", required = false, dataType = "SysLogQuery")
     @GetMapping("/page")

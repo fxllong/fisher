@@ -1,0 +1,13 @@
+package ${tableInfo.controllerPackageName}r;
+
+import com.fisher.common.base.controller.BaseController;
+import ${tableInfo.packageName}.${tableInfo.className};
+import ${tableInfo.servicePackageName}.${tableInfo.className}Service;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author $tableInfo.authorName
+ */
+@RestController
+public class $!{tableInfo.className}Controller extends BaseController<$!{tableInfo.className}Service, $!{tableInfo.className}, $!tableInfo.pk.attrType> {
+}

@@ -1,0 +1,22 @@
+package $tableInfo.queryPackageName;
+
+import ${tableInfo.packageName}.${tableInfo.className};
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.Data;
+
+
+
+/**
+ * @author $tableInfo.authorName
+ */
+@Data
+public class ${tableInfo.className}Query extends  Page<${tableInfo.className}> {
+
+    #foreach ($column in ${tableInfo.columnInfo})
+    /**
+     * $!{column.columnComment}
+     */
+    private $column.attrType $column.attrName;
+    #end
+
+}

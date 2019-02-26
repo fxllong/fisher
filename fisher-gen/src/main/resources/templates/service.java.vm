@@ -1,0 +1,13 @@
+package ${tableInfo.servicePackageName};
+
+import com.fisher.common.base.service.BaseService;
+import $!{tableInfo.packageName}.$!{tableInfo.className};
+
+
+
+/**
+ * @author $tableInfo.authorName
+ */
+public interface ${tableInfo.className}Service extends BaseService<$!{tableInfo.className}>{
+
+}
