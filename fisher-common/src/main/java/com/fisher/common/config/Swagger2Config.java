@@ -48,9 +48,9 @@ public class Swagger2Config{
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Panda Service API")
-                .description("Panda Service 接口文档说明")
-                .contact(new Contact("yukong", "https://www.yukonga.cn", "541130126@qq.com"))
+                .title("Fisher Service API")
+                .description("Fisher Service 接口文档说明")
+                .contact(new Contact("fisher", "https://github/fanxinglong/fisher", "1107999877@qq.com"))
                 .version("1.0")
                 .build();
     }
