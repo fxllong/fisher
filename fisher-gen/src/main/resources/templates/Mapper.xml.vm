@@ -16,7 +16,7 @@
     </resultMap>
 
     <select id="pageByQuery" resultMap="${tableInfo.className}Map">
-        select * from sys_dict  ${tableInfo.tableName}
+        select * from  ${tableInfo.tableName}
         <where >
             #foreach ($column in ${tableInfo.columnInfo})
             #if($column.attrType == "String")

@@ -161,7 +161,6 @@ VALUES
 (3,'资源管理','0','menu','/admin/resource',NULL,1,'caidanguanli','views/admin/menu/index',3,'2017-11-08 09:57:27','2019-01-31 15:06:50','0'),
 (4,'角色管理','0','role','/admin/role',NULL,1,'jueseguanli','views/admin/role/index',4,'2017-11-08 10:13:37','2019-01-31 15:06:52','0'),
 (5,'日志管理','0','log','/admin/log',NULL,1,'rizhiguanli','views/admin/log/index',5,'2017-11-20 14:06:22','2019-01-31 15:07:27','0'),
-(6,'字典管理','0','/dict','/admin/dict',NULL,1,'zidianguanli','views/admin/dict/index',6,'2017-11-29 11:30:52','2019-01-31 15:07:23','0'),
 (8,'系统监控','0','/system','/system:view',NULL,-1,'iconbmgl','System',8,'2018-01-22 12:30:41','2019-01-31 15:07:00','0'),
 (9,'查看用户','1',NULL,'/admin/user:select',NULL,2,NULL,NULL,2,'2018-10-17 16:32:36','2018-11-05 15:54:12','0'),
 (10,'测试','0','/a/b','/test',NULL,-1,'xx','/a/b',2,'2018-10-29 20:48:37','2019-01-31 15:07:03','1'),

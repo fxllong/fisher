@@ -97,7 +97,6 @@ ignore:
     - /admin/user/**
     - /admin/resource/**
     - /admin/role/**
-    - /admin/dict/**
     - /refresh/**
     - /swagger-ui.html
     - /swagger-resources/**
