@@ -43,8 +43,8 @@ public class AuthController {
     @GetMapping("/token/page")
     public ApiResult getTokenList(OAuth2AccessTokenQuery oAuth2AccessTokenQuery) {
         redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-        oAuth2AccessTokenQuery.setRecords((List)redisTemplate.opsForList().range(CommonConstants.PANDA_REDIS_LIST_LEY, oAuth2AccessTokenQuery.getStart(), oAuth2AccessTokenQuery.getEnd()));
-        List<OAuth2AccessToken> all = (List)redisTemplate.opsForList().range(CommonConstants.PANDA_REDIS_LIST_LEY, 0, -1);
+        oAuth2AccessTokenQuery.setRecords((List)redisTemplate.opsForList().range(CommonConstants.FISHER_REDIS_LIST_LEY, oAuth2AccessTokenQuery.getStart(), oAuth2AccessTokenQuery.getEnd()));
+        List<OAuth2AccessToken> all = (List)redisTemplate.opsForList().range(CommonConstants.FISHER_REDIS_LIST_LEY, 0, -1);
         if(all != null){
             oAuth2AccessTokenQuery.setTotal(all.size());
         }
