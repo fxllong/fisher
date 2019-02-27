@@ -1,4 +1,4 @@
-# 忽略匹配下列规则的Git 提交 V2.1.0
+# 忽略匹配下列规则的git
 ### gradle ###
 .gradle
 /build/
@@ -30,7 +30,7 @@ nbdist/
 .nb-gradle/
 
 ### maven ###
-target/
+/target/
 *.war
 *.ear
 *.zip
