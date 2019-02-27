@@ -17,6 +17,12 @@
         <module>fisher-starter</module>
         <module>fisher-gen</module>
         <module>fisher-file</module>
+        <module>fisher-front-index</module>
+        <module>fisher-front-gateway</module>
+        <module>fisher-cart</module>
+        <module>fisher-front</module>
+        <module>fisher-manage</module>
+        <module>fisher-front-gateway</module>
     </modules>
 
     <parent>
