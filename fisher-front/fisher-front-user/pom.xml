@@ -11,6 +11,11 @@
 
     <groupId>com.fisher.front</groupId>
     <artifactId>fisher-front-user</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>fisher-front-user-interface</module>
+        <module>fisher-front-user-service</module>
+    </modules>
 
 
 </project>

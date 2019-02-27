@@ -1,0 +1,85 @@
+spring:
+  application:
+    # 应用名称
+    name: fisher-front-gateway
+  cloud:
+    # 使用 Naoos 作为服务注册发现
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    # 使用 Sentinel 作为熔断器
+    sentinel:
+      transport:
+        port: 8721
+        dashboard: localhost:8080
+    # 路由网关配置
+    gateway:
+      # 设置与服务注册发现组件结合，这样可以采用服务名的路由策略
+      discovery:
+        locator:
+          enabled: true
+      # 配置路由规则
+      routes:
+        # =====================================
+        - id: fisher-index-service
+          uri: lb://fisher-index-service
+          order: 8000
+          predicates:
+            - Path=/api-wx/wx/home/**
+          filters:
+            - StripPrefix=2
+        - id: fisher-goods-service
+          uri: lb://fisher-goods-service
+          order: 8001
+          predicates:
+            - Path=/api-wx/wx/goods/**
+          filters:
+            - StripPrefix=2
+        - id: fisher-cart-service
+          uri: lb://fisher-cart-service
+          order: 8002
+          predicates:
+            - Path=/api-wx/wx/cart/**
+          filters:
+            - StripPrefix=2
+        - id: fisher-user-service
+          uri: lb://fisher-user-service
+          order: 8003
+          predicates:
+            - Path=/api-wx/wx/wechat/**
+          filters:
+            - StripPrefix=2
+        - id: fisher-cms-service
+          uri: lb://fisher-cms-service
+          order: 8004
+          predicates:
+            - Method=GET,POST
+          filters:
+            - StripPrefix=2
+        - id: fisher-order-service
+          uri: lb://fisher-order-service
+          order: 8005
+          predicates:
+            - Path=/api-wx/wx/order/**
+          filters:
+            - StripPrefix=2
+
+server:
+  port: 9001
+
+# 目前无效
+feign:
+  sentinel:
+    enabled: true
+
+# 目前无效
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 配置日志级别，方别调试
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

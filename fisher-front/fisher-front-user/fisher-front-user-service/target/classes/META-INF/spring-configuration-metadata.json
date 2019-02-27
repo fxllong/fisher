@@ -1,0 +1,42 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.fisher.front.user.config.WxProperties",
+      "name": "fisher.wx",
+      "type": "com.fisher.front.user.config.WxProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.fisher.front.user.config.WxProperties",
+      "name": "fisher.wx.app-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.fisher.front.user.config.WxProperties",
+      "name": "fisher.wx.app-secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.fisher.front.user.config.WxProperties",
+      "name": "fisher.wx.key-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.fisher.front.user.config.WxProperties",
+      "name": "fisher.wx.mch-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.fisher.front.user.config.WxProperties",
+      "name": "fisher.wx.mch-key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.fisher.front.user.config.WxProperties",
+      "name": "fisher.wx.notify-url",
+      "type": "java.lang.String"
+    }
+  ]
+}

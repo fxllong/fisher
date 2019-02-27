@@ -1,0 +1,32 @@
+fisher:
+  # 开发者应该设置成自己的wx相关信息
+  wx:
+    app-id: wx19ae2dd82a599d86
+    app-secret: 82ea88d055f261951bf57de5b1c4fa0e
+    mch-id: 1494539162
+    mch-key: 35da04fed79a91ec91b51d487877a9e2
+    notify-url: http://www.example.com/wx/order/pay-notify
+    # 商户证书文件路径
+    # 请参考“商户证书”一节 https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3
+    key-path: /Users/xinglongfan/Downloads/cert/apiclient_cert.p12
+server:
+  port: 8859
+spring:
+  application:
+    name: fisher-user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver #这个可以省略，可以根据url推断驱动
+    url: jdbc:mysql://localhost:3306/litemall?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl

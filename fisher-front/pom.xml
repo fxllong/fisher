@@ -19,7 +19,7 @@
         <module>fisher-front-cart</module>
         <module>fisher-front-cms</module>
         <module>fisher-front-user</module>
-        <module>fisher-front-gateway</module>
+        <module>fisher-front-user</module>
     </modules>
 
 
