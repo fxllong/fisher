@@ -3,7 +3,7 @@ package com.fisher.auth.config;
 
 import com.fisher.auth.handler.CustomWebResponseExceptionTranslator;
 import com.fisher.auth.security.UserDetailsImpl;
-import com.fisher.common.constants.PandaServiceNameConstants;
+import com.fisher.common.constants.FisherServiceNameConstants;
 import com.fisher.common.constants.SecurityConstants;
 import com.fisher.common.constants.UserConstants;
 import com.fisher.common.dto.SysLogDTO;
@@ -141,7 +141,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                         .setStatus(OperationStatusEnum.SUCCESS.getCode())
                         .setModuleName("auth认证模块")
                         .setActionName("登录")
-                        .setServiceId(PandaServiceNameConstants.FISHER_AUTH)
+                        .setServiceId(FisherServiceNameConstants.FISHER_AUTH)
                         .setRemoteAddr(UrlUtil.getRemoteHost(request))
                         .setMethod(request.getMethod());
 //                rabbitTemplate.convertAndSend(MqQueueNameConstant.SYS_LOG_QUEUE, sysLogDTO);

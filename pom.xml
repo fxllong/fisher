@@ -9,29 +9,40 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>fisher-center</module>
         <module>fisher-auth</module>
         <module>fisher-back</module>
         <module>fisher-common</module>
         <module>fisher-gateway</module>
+        <module>fisher-log</module>
+        <module>fisher-starter</module>
+        <module>fisher-gen</module>
+        <module>fisher-file</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.0.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
-        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <velocity.version>1.7</velocity.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-io.version>2.5</commons-io.version>
+        <commons-configuration.version>1.10</commons-configuration.version>
+        <spring-cloud.version>Finchley.SR2</spring-cloud.version>
         <guava-version>20.0</guava-version>
         <jjwt-version>0.9.0</jjwt-version>
         <mybatis-plus-starter.version>3.0.1</mybatis-plus-starter.version>
         <mysql-connector.version>5.1.46</mysql-connector.version>
         <swagger.version>2.9.2</swagger.version>
         <gson.version>2.8.2</gson.version>
-        <spring.serurity.version>5.0.8.RELEASE</spring.serurity.version>
+        <spring.cloud.oauth2.version>2.3.3.RELEASE</spring.cloud.oauth2.version>
+        <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
         <qcloudsms.version>1.0.5</qcloudsms.version>
     </properties>
 
@@ -44,7 +55,16 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--Spring cloud alibaba-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
 
 

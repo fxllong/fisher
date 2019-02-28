@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: fisher-user-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: fisher
+    password: fisher
   datasource:
     url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
     driver-class-name: com.mysql.jdbc.Driver
@@ -109,10 +114,7 @@ timeoutInMilliseconds: 60000
 ---
 spring:
   profiles: dev
-eureka:
-  instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

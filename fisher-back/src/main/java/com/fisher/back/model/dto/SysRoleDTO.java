@@ -5,10 +5,6 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * @author: yukong
- * @date: 2018/11/1 15:37
- */
 @Data
 public class SysRoleDTO {
 

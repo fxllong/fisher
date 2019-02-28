@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fisher.gen.mapper.ColumnInfoMapper">
+    <select id="listByTableName" resultType="com.fisher.gen.model.entity.ColumnInfo">
+
+        select column_name, data_type , column_comment ,
+		column_key , extra from information_schema.columns
+		where table_name = #{tableName} and table_schema = (select database())
+    </select>
+</mapper>

@@ -2,7 +2,12 @@ server:
   port: 2004
 spring:
   application:
-    name: api-gateway-dynamic
+    name: api-gateway
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: fisher
+    password: fisher
   profiles:
     active: dev
   datasource:
@@ -21,6 +26,9 @@ spring:
   tomcat:
     max-threads: 500 # Maximum amount of worker threads.
     min-spare-threads: 50 # Minimum amount of worker threads
+logging:
+  level:
+    com.fisher.gateway.feign.SysResourceService: debug
 
   redis:
     host: localhost
@@ -49,7 +57,6 @@ ribbon:
     enabled: false
   ReadTimeout: 10000
   ConnectTimeout: 10000
-
 feign:
   hystrix:
     enabled: true
@@ -85,6 +92,8 @@ ignore:
   urls:
     - /**/*.css
     - /auth/**
+    - /gen/**
+    - /syslog/**
     - /admin/user/**
     - /admin/resource/**
     - /admin/role/**
@@ -96,20 +105,18 @@ ignore:
 
 swagger:
   client:
-    - panda-user-service
-    - panda-gen-service
+    - fisher-user-service
+    - fisher-gen-service
 # 关闭默认路由
 zuul:
   ignoredServices: '*'
+  sensitiveHeaders:
 
 
 ---
 spring:
   profiles: dev
-eureka:
-  instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

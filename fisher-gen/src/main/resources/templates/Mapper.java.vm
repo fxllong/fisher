@@ -1,0 +1,13 @@
+package $tableInfo.mapperPackageName;
+
+import ${tableInfo.packageName}.${tableInfo.className};
+import com.fisher.common.base.mapper.BaseMapper;
+
+
+
+/**
+ * @author $tableInfo.authorName
+ */
+public interface ${tableInfo.className}Mapper extends BaseMapper<$!{tableInfo.className}>{
+
+}
