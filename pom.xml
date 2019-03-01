@@ -17,6 +17,7 @@
         <module>fisher-starter</module>
         <module>fisher-gen</module>
         <module>fisher-file</module>
+        <module>fisher-transaction</module>
     </modules>
 
     <parent>

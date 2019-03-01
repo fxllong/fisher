@@ -30,7 +30,7 @@ nbdist/
 .nb-gradle/
 
 ### maven ###
-/target/
+*/target/*
 *.war
 *.ear
 *.zip
