@@ -29,7 +29,7 @@ dist/
 nbdist/
 .nb-gradle/
 
-### maven ###
+### maven 忽略文件###
 */target/*
 *.war
 *.ear
