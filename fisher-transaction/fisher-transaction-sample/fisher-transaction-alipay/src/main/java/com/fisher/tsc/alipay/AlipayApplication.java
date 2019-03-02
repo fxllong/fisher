@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class CapitalApplication {
+public class AlipayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CapitalApplication.class, args);
+        SpringApplication.run(AlipayApplication.class, args);
     }
 }

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 
 @Data
-public class CapitalOrderMessage {
+public class OrderMessage {
 
     private Long userId;
 

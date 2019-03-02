@@ -8,5 +8,5 @@ import org.apache.ibatis.annotations.Select;
 
 public interface AlipayTradeOrderMapper extends BaseMapper<AlipayTradeOrder> {
     @Select("SELECT * FROM alipay_trade_order WHERE order_no = #{orderNo}")
-    AlipayTradeOrder queryCapitalTradeOrderByOrderNo(String orderNo);
+    AlipayTradeOrder queryAlipayTradeOrderByOrderNo(String orderNo);
 }

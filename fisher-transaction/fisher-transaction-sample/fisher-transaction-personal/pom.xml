@@ -61,7 +61,7 @@
             <version>2.3.23</version>
         </dependency>
         <dependency>
-            <groupId>com.fisher.transaction</groupId>
+            <groupId>com.fisher.tsc</groupId>
             <artifactId>fisher-transaction</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

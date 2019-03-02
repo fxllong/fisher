@@ -3,7 +3,7 @@ package com.fisher.tsc.msg.dto;
 
 public enum EventTypeEnum {
 
-    CAPITAL_TO_TREASURE("余额转账到支付宝");
+    ALIPAY_TO_PERSONAL("支付宝转账到个人");
     /** 描述 */
     private String desc;
     private String code;

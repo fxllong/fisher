@@ -8,11 +8,11 @@ import java.math.BigDecimal;
 public interface IAlipayService {
 
     /**
-     * 转账到余额宝
+     * 转账到个人账户
      * @param userId
      * @param amount
      */
-    String tranferToBalanceTreasure(Long userId, BigDecimal amount);
+    String transferAlipayToPersonalBalance(Long userId, BigDecimal amount);
 
     /**
      * 订单成功的处理

@@ -5,7 +5,7 @@ import com.fisher.tsc.personal.pojo.PersonalTradeOrder;
 import org.apache.ibatis.annotations.Select;
 
 
-public interface BalanceTreasureTradeOrderMapper extends BaseMapper<PersonalTradeOrder> {
+public interface PersonalBalanceTradeOrderMapper extends BaseMapper<PersonalTradeOrder> {
     @Select("SELECT * FROM personal_trade_order WHERE order_no = #{orderNo}")
     PersonalTradeOrder queryBalanceTreasureTradeOrderByOrderNo(String orderNo);
 

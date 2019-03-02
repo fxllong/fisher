@@ -17,9 +17,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.*;
 
 
@@ -35,6 +32,7 @@ public class MessageLogServiceImpl extends ServiceImpl<MessageLogMapper, Message
     public String saveMessageWaitingConfirm(MessageLog messageLog) {
         messageLog.setStatus(MessageStatusEnum.WAITING_CONFIRM.name());
         messageLog.setDead(PublicEnum.NO.getCode());
+        messageLog.setEventType(EventTypeEnum.ALIPAY_TO_PERSONAL.getCode());
         messageLog.setCreateTime(new Date());
         messageLog.setUpdateTime(new Date());
         boolean saveFlag = save(messageLog);
@@ -180,8 +178,8 @@ public class MessageLogServiceImpl extends ServiceImpl<MessageLogMapper, Message
     @Override
     public void afterPropertiesSet() throws Exception {
         handlers = new HashMap<>();
-        handlers.put(EventTypeEnum.CAPITAL_TO_TREASURE.getCode(),
-                IOCUtil.getBean(MessageEventCapitalToTreasureHandler.class));
+        handlers.put(EventTypeEnum.ALIPAY_TO_PERSONAL.getCode(),
+                IOCUtil.getBean(MessageEventAlipayToPeronalHandler.class));
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.fisher.tsc.personal.listener;
 
-import com.fisher.tsc.personal.service.IBalanceTreasureService;
+import com.fisher.tsc.personal.service.IPersonalBalanceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -16,18 +16,18 @@ import org.springframework.stereotype.Component;
 public class BanlanceTreasureListener {
 
     @Autowired
-    IBalanceTreasureService iBalanceTreasureService;
+    IPersonalBalanceService iPersonalBalanceService;
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(name = "capitalToTreasure", durable = "true"),
-            exchange = @Exchange(name = "capital.order",
+            value = @Queue(name = "alipayToPersonal", durable = "true"),
+            exchange = @Exchange(name = "alipay.order",
                     type = ExchangeTypes.TOPIC,
                     ignoreDeclarationExceptions = "true"),
-            key = {"capitalToTreasure"}
+            key = {"alipayToPersonal"}
     ))
     public void listenCapitalOrder(String messageBody) {
-        log.info("BanlanceTreasureListener listenCapitalOrder:{}",messageBody);
-        iBalanceTreasureService.dealWithTranferFromCapitalMessage(messageBody);
+        log.info("PersonalBanlanceListener listenAlipayOrder:{}",messageBody);
+        iPersonalBalanceService.dealWithTranferFromCapitalMessage(messageBody);
     }
 
 }

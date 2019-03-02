@@ -1,9 +1,9 @@
 package com.fisher.tsc.personal.client;
 
-import com.fisher.tsc.msg.api.LtsMessageApi;
+import com.fisher.tsc.msg.api.FisherMessageApi;
 import org.springframework.cloud.openfeign.FeignClient;
 
 
 @FeignClient("fisher-transaction-service")
-public interface LtsMessageClient extends LtsMessageApi {
+public interface PersonalMessageClient extends FisherMessageApi {
 }

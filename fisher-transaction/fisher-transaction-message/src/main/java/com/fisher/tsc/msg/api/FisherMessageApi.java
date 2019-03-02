@@ -4,7 +4,7 @@ import com.fisher.tsc.msg.dto.MessageLogDto;
 import org.springframework.web.bind.annotation.*;
 
 
-public interface LtsMessageApi {
+public interface FisherMessageApi {
 
 
     @PostMapping("message/saveMessageWaitingConfirm")

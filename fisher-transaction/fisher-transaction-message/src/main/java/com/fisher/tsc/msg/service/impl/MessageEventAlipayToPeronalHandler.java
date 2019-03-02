@@ -18,10 +18,10 @@ import java.util.Map;
 
 @Service
 @Slf4j
-public class MessageEventCapitalToTreasureHandler implements IMessageEventHandler {
-    private final String EXCHANGE = "capital.order";
+public class MessageEventAlipayToPeronalHandler implements IMessageEventHandler {
+    private final String EXCHANGE = "alipay.order";
 
-    private final String ROUTING_KEY = "capitalToTreasure";
+    private final String ROUTING_KEY = "alipayToPersonal";
 
     private String baseUrl = "http://fisher-transaction-alipay-service/";//这里应该放在统一的服务地址配置类
 
@@ -47,7 +47,6 @@ public class MessageEventCapitalToTreasureHandler implements IMessageEventHandle
         messageLogMapper.updateById(messageLog);
         //发送消息
         amqpTemplate.convertAndSend(EXCHANGE,ROUTING_KEY,messageLog.getMessageBody());
-
     }
 
     @Override
@@ -55,7 +54,7 @@ public class MessageEventCapitalToTreasureHandler implements IMessageEventHandle
         //通知账户余额服务更新订单状态
         Map<String, Object> messageMap = JsonUtils.toMap(messageLog.getMessageBody(), String.class, Object.class);
         String orderNo = (String) messageMap.get("orderNo");
-        boolean success = restTemplate.postForObject(baseUrl + "capital/balanceTreasureSuccess/" + orderNo,null, Boolean.class);
+        boolean success = restTemplate.postForObject(baseUrl + "alipay/personalBalanceSuccess/" + orderNo,null, Boolean.class);
         if (success){
             //删除本地消息表的消息
             messageLogMapper.deleteById(messageLog.getId());
@@ -66,8 +65,8 @@ public class MessageEventCapitalToTreasureHandler implements IMessageEventHandle
     public void doHandleWaitingMessage(MessageLog messageLog) {
         Map<String, Object> messageMap = JsonUtils.toMap(messageLog.getMessageBody(), String.class, Object.class);
         String orderNo = (String) messageMap.get("orderNo");
-        String result = restTemplate.getForObject(baseUrl + "capital/queryOrderStatus/" + orderNo, String.class);
-        if ("INIT".equals(result)){//如果订单的状态为INIT 则该消息需要通知余额宝服务
+        String result = restTemplate.getForObject(baseUrl + "alipay/queryOrderStatus/" + orderNo, String.class);
+        if ("INIT".equals(result)){//如果订单的状态为INIT 则该消息需要通知个人账户服务
             messageLog.setStatus(MessageStatusEnum.SENDING.getCode());
             messageLogMapper.updateById(messageLog);
             amqpTemplate.convertAndSend(EXCHANGE,ROUTING_KEY,messageLog.getMessageBody());

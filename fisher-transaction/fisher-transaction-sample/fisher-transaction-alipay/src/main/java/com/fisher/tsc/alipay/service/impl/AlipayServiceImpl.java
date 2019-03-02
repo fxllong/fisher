@@ -1,7 +1,7 @@
 package com.fisher.tsc.alipay.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.fisher.tsc.alipay.client.LtsMessageClient;
+import com.fisher.tsc.alipay.client.AlipayMessageClient;
 import com.fisher.tsc.alipay.common.IdWorker;
 import com.fisher.tsc.alipay.common.OrderStatusEnum;
 import com.fisher.tsc.alipay.mapper.AlipayAccountMapper;
@@ -24,58 +24,58 @@ import java.util.Date;
 public class AlipayServiceImpl implements IAlipayService {
 
     @Autowired
-    AlipayAccountMapper capitalAccountMapper;
+    AlipayAccountMapper alipayAccountMapper;
     @Autowired
-    AlipayTradeOrderMapper capitalTradeOrderMapper;
+    AlipayTradeOrderMapper alipayTradeOrderMapper;
 
     @Autowired
     IdWorker idWorker;
 
     @Autowired
-    LtsMessageClient ltsMessageClient;
+    AlipayMessageClient alipayMessageClient;
 
     @Override
     @Transactional
-    public String tranferToBalanceTreasure(Long userId, BigDecimal amount) {
+    public String transferAlipayToPersonalBalance(Long userId, BigDecimal amount) {
         //查询用户账户资金
         //1.创建订单
-        AlipayAccount capitalAccount = capitalAccountMapper.queryCapitalAccountByUserId(userId);
-        capitalAccount.transferOut(amount);//扣减额度
-        String remark = "余额宝单次转入";
-        AlipayTradeOrder capitalTradeOrder = new AlipayTradeOrder();
-        capitalTradeOrder.setAmount(amount.negate());
-        capitalTradeOrder.setUserId(userId);
-        capitalTradeOrder.setOrderNo(String.valueOf(idWorker.nextId()));
-        capitalTradeOrder.setStatus(OrderStatusEnum.INIT.value());
-        capitalTradeOrder.setRemark(remark);
-        capitalTradeOrder.setCreateTime(new Date());
-        capitalTradeOrder.setUpdateTime(new Date());
-        capitalTradeOrderMapper.insert(capitalTradeOrder);
-        log.info("用户{}开始余额宝转账，生成的订单：{}",userId,capitalTradeOrder);
+        AlipayAccount alipayAccount = alipayAccountMapper.queryCapitalAccountByUserId(userId);
+        alipayAccount.transferOut(amount);//扣减额度
+        String remark = "个人账户单次转入";
+        AlipayTradeOrder alipayTradeOrder = new AlipayTradeOrder();
+        alipayTradeOrder.setAmount(amount.negate());
+        alipayTradeOrder.setUserId(userId);
+        alipayTradeOrder.setOrderNo(String.valueOf(idWorker.nextId()));
+        alipayTradeOrder.setStatus(OrderStatusEnum.INIT.value());
+        alipayTradeOrder.setRemark(remark);
+        alipayTradeOrder.setCreateTime(new Date());
+        alipayTradeOrder.setUpdateTime(new Date());
+        alipayTradeOrderMapper.insert(alipayTradeOrder);
+        log.info("用户{}开始个人账户转账，生成的订单：{}",userId,alipayTradeOrder);
         //2.预发送消息
-        MessageLogDto messageLogDto = new MessageLogDto(EventTypeEnum.CAPITAL_TO_TREASURE.getCode());
+        MessageLogDto messageLogDto = new MessageLogDto(EventTypeEnum.ALIPAY_TO_PERSONAL.getCode());
         messageLogDto.put("userId",userId)//
-                .put("orderNo",capitalTradeOrder.getOrderNo())//
+                .put("orderNo",alipayTradeOrder.getOrderNo())//
                 .put("amount",amount);//
-        String messageId = ltsMessageClient.saveMessageWaitingConfirm(messageLogDto);
+        String messageId = alipayMessageClient.saveMessageWaitingConfirm(messageLogDto);
         //3.更新资金账户额度  mybatisplus自带的乐观锁
-        capitalAccount.setUpdateTime(new Date());
-        capitalAccountMapper.updateById(capitalAccount);
+        alipayAccount.setUpdateTime(new Date());
+        alipayAccountMapper.updateById(alipayAccount);
         return messageId;
     }
 
     @Override
     public void doOrderSuccess(String orderNo) {
-        AlipayTradeOrder capitalTradeOrder = capitalTradeOrderMapper.queryCapitalTradeOrderByOrderNo(orderNo);
-        capitalTradeOrder.setUpdateTime(new Date());
-        capitalTradeOrder.setStatus(OrderStatusEnum.SUCCESS.value());
-        capitalTradeOrderMapper.update(capitalTradeOrder,
+        AlipayTradeOrder alipayTradeOrder = alipayTradeOrderMapper.queryAlipayTradeOrderByOrderNo(orderNo);
+        alipayTradeOrder.setUpdateTime(new Date());
+        alipayTradeOrder.setStatus(OrderStatusEnum.SUCCESS.value());
+        alipayTradeOrderMapper.update(alipayTradeOrder,
                 new UpdateWrapper<AlipayTradeOrder>().eq("order_no",orderNo));
     }
 
     @Override
     public AlipayTradeOrder getCapitalTradeOrderByOderNo(String orderNo) {
-        return capitalTradeOrderMapper.queryCapitalTradeOrderByOrderNo(orderNo);
+        return alipayTradeOrderMapper.queryAlipayTradeOrderByOrderNo(orderNo);
     }
 
 
