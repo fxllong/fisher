@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.19)
 # Database: cloud
-# Generation Time: 2019-02-26 08:40:46 +0000
+# Generation Time: 2019-03-02 17:29:17 +0000
 # ************************************************************
 
 
@@ -18,6 +18,38 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table sys_dict
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `sys_dict`;
+
+CREATE TABLE `sys_dict` (
+                          `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+                          `desc` varchar(255) DEFAULT NULL COMMENT '字典描述',
+                          `value` varchar(255) DEFAULT NULL COMMENT '字典值',
+                          `parent_id` int(11) NOT NULL COMMENT '上层id  定义默认是-1',
+                          `sort_order` int(11) NOT NULL COMMENT '权重',
+                          `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+                          `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                          `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+                          `del_flag` char(1) DEFAULT '0' COMMENT '是否删除 1-删除，0-未删除',
+                          PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='字典表';
+
+LOCK TABLES `sys_dict` WRITE;
+/*!40000 ALTER TABLE `sys_dict` DISABLE KEYS */;
+
+INSERT INTO `sys_dict` (`id`, `desc`, `value`, `parent_id`, `sort_order`, `remark`, `create_time`, `modify_time`, `del_flag`)
+VALUES
+(8,'性别','sex',-1,100,'备注remark','2019-01-24 14:52:52','2019-01-24 16:58:47','0'),
+(9,'腾讯云短信配置','tecent_sms_config',-1,1,NULL,'2019-01-24 16:08:23',NULL,'0'),
+(10,'阿里云短信配置','aliyun_sms_config',-1,2,NULL,'2019-01-24 16:09:48',NULL,'0'),
+(11,'测试','test',-1,1,NULL,'2019-01-24 17:15:45',NULL,'0');
+
+/*!40000 ALTER TABLE `sys_dict` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table sys_gen_db_config
@@ -178,7 +210,10 @@ VALUES
 (28,'代码生成','0','code','/gen/code',NULL,31,'code','views/gen/code/index',1,'2018-01-22 12:30:41','2019-02-26 13:56:33','0'),
 (29,'查询','1',NULL,'/gen/code:select',NULL,28,NULL,NULL,1,'2018-11-08 18:02:20','2019-02-26 13:39:49','0'),
 (30,'下载','1',NULL,'/gen/code:download',NULL,28,NULL,NULL,1,'2018-11-08 18:02:42','2019-02-26 13:39:51','0'),
-(31,'研发管理','0','/gen','/gen',NULL,-1,'develop','Layout',4,'2018-01-22 12:30:41','2019-02-26 13:57:51','0');
+(31,'研发管理','0','/gen','/gen',NULL,-1,'develop','Layout',4,'2018-01-22 12:30:41','2019-02-26 13:57:51','0'),
+(55,'消息管理','0','/tsc','/tsc',NULL,-1,'develop','Layout',2,'2019-03-02 15:07:08','2019-03-02 15:24:12','0'),
+(57,'消息处理','0','msg','/tsc/msg',NULL,55,'code','views/msg/index',1,'2019-03-02 15:16:38','2019-03-02 15:24:03','0'),
+(58,'查询消息','1','/gen/code:select','/tsc/msg:select',NULL,57,NULL,'views/msg/index',1,'2019-03-02 15:16:38','2019-03-02 15:24:03','0');
 
 /*!40000 ALTER TABLE `sys_resource` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -233,7 +268,6 @@ VALUES
 (1,3),
 (1,4),
 (1,5),
-(1,6),
 (1,8),
 (1,9),
 (1,13),
@@ -247,11 +281,13 @@ VALUES
 (1,21),
 (1,22),
 (1,23),
-(1,24),
 (1,28),
 (1,29),
 (1,30),
 (1,31),
+(1,55),
+(1,57),
+(1,58),
 (2,1),
 (2,4),
 (2,8),
@@ -301,7 +337,8 @@ LOCK TABLES `sys_user` WRITE;
 
 INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `mobile`, `qq`, `wechat`, `weibo`, `avatar`, `qq_openid`, `wechat_openid`, `weibo_openid`, `create_time`, `modify_time`, `del_flag`)
 VALUES
-(50,X'666973686572',X'24326124313024326B56374E356B6C6749753646305362485646704A7576682F597A772F6C55734851454B47643166314530716371536E3342713379',NULL,X'3135303739313535363134',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2019-02-22 15:22:44',X'30');
+(50,X'666973686572',X'24326124313024326B56374E356B6C6749753646305362485646704A7576682F597A772F6C55734851454B47643166314530716371536E3342713379',NULL,X'3135303739313535363134',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2019-02-22 15:22:44',X'30'),
+(56,X'737570657232',X'24326124313024322E5A455A6470716739584D6D49474F726C5365512E6E3765747450362E45764C794E39424938425648575461784B6D6751383561',NULL,X'3133393836383631333938',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-03-02 17:07:32',NULL,X'30');
 
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -329,7 +366,8 @@ VALUES
 (51,4),
 (52,2),
 (54,1),
-(55,2);
+(55,2),
+(56,1);
 
 /*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -363,7 +401,8 @@ VALUES
 (4,'/admin/**','fisher-user-service','','1','1','1','','2018-05-21 11:40:38','2019-02-22 17:24:52','0'),
 (5,'/auth/**','fisher-auth','','1','1','1','','2018-05-21 11:41:08','2019-02-22 17:24:49','0'),
 (6,'/syslog/**','fisher-log-service',' ','1','1','1','','2019-02-23 14:29:56','2019-02-23 15:24:54','0'),
-(7,'/gen/**','fisher-gen-service','','1','1','1','','2019-02-26 12:54:11','2019-02-26 13:06:07','0');
+(7,'/gen/**','fisher-gen-service','','1','1','1','','2019-02-26 12:54:11','2019-02-26 13:06:07','0'),
+(8,'/tsc/**','fisher-transaction-web-service','','1','1','1','','2019-03-02 15:01:15','2019-03-02 15:01:51','0');
 
 /*!40000 ALTER TABLE `sys_zuul_route` ENABLE KEYS */;
 UNLOCK TABLES;
