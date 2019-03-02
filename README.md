@@ -36,6 +36,10 @@
 # 说明
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/code.png)
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
+
+# 基于BASE理论-MQ实现可靠消息最终一致性的分布式事务解决方案架构图
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/tsc.png)
+
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下
