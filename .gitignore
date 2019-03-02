@@ -30,12 +30,13 @@ nbdist/
 .nb-gradle/
 
 ### maven 忽略文件###
-*/target/*
 *.war
 *.ear
 *.zip
 *.tar
 *.tar.gz
+*/target
+
 
 ### logs ####
 /logs/
