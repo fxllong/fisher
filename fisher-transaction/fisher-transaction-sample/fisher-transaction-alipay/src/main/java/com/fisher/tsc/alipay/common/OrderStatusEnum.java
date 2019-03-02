@@ -1,9 +1,6 @@
 package com.fisher.tsc.alipay.common;
 
-/**
- * @author suzhe
- * @date 2019/1/4
- */
+
 public enum OrderStatusEnum {
 
     INIT("初始化"),

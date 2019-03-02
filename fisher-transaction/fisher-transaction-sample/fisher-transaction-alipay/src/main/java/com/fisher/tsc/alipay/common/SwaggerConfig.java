@@ -20,7 +20,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.suzhe.capital.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.fisher.alipay.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

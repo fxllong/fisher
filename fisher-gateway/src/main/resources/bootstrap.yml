@@ -92,6 +92,7 @@ ignore:
   urls:
     - /**/*.css
     - /auth/**
+    - /tsc/**
     - /gen/**
     - /syslog/**
     - /admin/user/**

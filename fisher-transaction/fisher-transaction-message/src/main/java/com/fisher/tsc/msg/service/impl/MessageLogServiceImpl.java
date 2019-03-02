@@ -4,10 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.fisher.tsc.msg.common.IOCUtil;
-import com.fisher.tsc.msg.common.MessageStatusEnum;
-import com.fisher.tsc.msg.common.PageResult;
-import com.fisher.tsc.msg.common.PublicEnum;
+import com.fisher.common.exception.FisherException;
+import com.fisher.common.exception.MessageExceptionEnum;
+import com.fisher.tsc.msg.common.*;
 import com.fisher.tsc.msg.dto.EventTypeEnum;
 import com.fisher.tsc.msg.mapper.MessageLogMapper;
 import com.fisher.tsc.msg.pojo.MessageLog;
@@ -18,6 +17,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
 
@@ -120,6 +121,32 @@ public class MessageLogServiceImpl extends ServiceImpl<MessageLogMapper, Message
         });
     }
 
+    @Override
+    public void reSendMessage(MessageLog messageLog) {
+        //检查消息数据的完整性
+        this.checkEmptyMessage(messageLog);
+        //更新消息发送次数
+        messageLog.setMessageSendTimes(messageLog.getMessageSendTimes() + 1);
+        messageLog.setUpdateTime(new Date());
+        messageLogMapper.updateById(messageLog);
+        String eventType = messageLog.getEventType();
+        IMessageEventHandler iMessageEventHandler = handlers.get(eventType);//获取该事件对应的处理器
+        //发送消息
+        iMessageEventHandler.sendMsg(messageLog.getMessageId(),messageLog.getMessageBody());
+    }
+
+    @Override
+    public void reSendMessageByMessageId(String messageId) {
+        if (StringUtils.isEmpty(messageId)) {
+            throw new FisherException();
+        }
+        MessageLog messageLog = messageLogMapper.queryMessageLogByMessageId(messageId);
+        String eventType = messageLog.getEventType();
+        IMessageEventHandler iMessageEventHandler = handlers.get(eventType);//获取该事件对应的处理器
+        //发送消息
+        iMessageEventHandler.reSendMsg(messageLog);
+    }
+
     /**
      * 根据条件获取消息
      */
@@ -155,6 +182,25 @@ public class MessageLogServiceImpl extends ServiceImpl<MessageLogMapper, Message
         handlers = new HashMap<>();
         handlers.put(EventTypeEnum.CAPITAL_TO_TREASURE.getCode(),
                 IOCUtil.getBean(MessageEventCapitalToTreasureHandler.class));
+    }
+
+    /**
+     * 检查消息参数是否为空
+     *
+     */
+    private void checkEmptyMessage(MessageLog messageLog) {
+        if (messageLog == null) {
+            throw new FisherException();
+        }
+        if (StringUtils.isEmpty(messageLog.getMessageId())) {
+            throw new FisherException(MessageExceptionEnum.MESSAGE_ID_CANT_EMPTY);
+        }
+        if (StringUtils.isEmpty(messageLog.getMessageBody())) {
+            throw new FisherException(MessageExceptionEnum.MESSAGE_BODY_CANT_EMPTY);
+        }
+//        if (StringUtils.isEmpty(messageLog.getConsumerQueue())) {
+//            throw new FisherException(MessageExceptionEnum.QUEUE_CANT_EMPTY);
+//        }
     }
 
 

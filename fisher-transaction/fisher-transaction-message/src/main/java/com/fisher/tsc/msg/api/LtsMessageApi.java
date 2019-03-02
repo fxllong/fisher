@@ -1,9 +1,7 @@
 package com.fisher.tsc.msg.api;
 
 import com.fisher.tsc.msg.dto.MessageLogDto;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 
 public interface LtsMessageApi {
@@ -17,4 +15,9 @@ public interface LtsMessageApi {
 
     @PostMapping("message/consumerSuccess/{messageId}")
     boolean consumerSuccess(@PathVariable("messageId") String messageId);
+
+    @RequestMapping("message/reSendMessageByMessageId")
+    boolean reSendMessageByMessageId(@RequestParam("messageId") String messageId);
+
+
 }

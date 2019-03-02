@@ -1,6 +1,5 @@
 package com.fisher.tsc.msg.controller;
 
-
 import com.fisher.tsc.msg.common.JsonUtils;
 import com.fisher.tsc.msg.convert.MessageConvert;
 import com.fisher.tsc.msg.dto.MessageLogDto;
@@ -15,7 +14,7 @@ import java.util.UUID;
 
 
 @RestController
-@RequestMapping("message")
+@RequestMapping("/message")
 @Slf4j
 public class MessageLogController {
 
@@ -51,6 +50,21 @@ public class MessageLogController {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 根据ID重新发送消息
+     * @param messageId
+     * @return
+     */
+    @PostMapping("/reSendMessageByMessageId")
+    public void reSendMessageByMessageId(@RequestParam("messageId") String messageId){
+        log.info("重新发送消息消息ID为messageId:{}",messageId);
+        try {
+            iMessageLogService.reSendMessageByMessageId(messageId);
+        }catch (Exception e){
+            log.error("confirmConsumeSuccess failure:",e);
+        }
     }
 
     @RequestMapping("/getMsgByStateAndIsDeadAndIsTimeout")

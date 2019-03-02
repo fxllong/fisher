@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
 import java.util.Map;
 
 
@@ -37,6 +38,16 @@ public class MessageEventCapitalToTreasureHandler implements IMessageEventHandle
     public void sendMsg(String messageId, String messageBody) {
 //        int i = 1/0;
         amqpTemplate.convertAndSend(EXCHANGE,ROUTING_KEY,messageBody);
+    }
+
+    @Override
+    public void reSendMsg(MessageLog messageLog) {
+        messageLog.setMessageSendTimes(messageLog.getMessageSendTimes()+1);
+        messageLog.setUpdateTime(new Date());
+        messageLogMapper.updateById(messageLog);
+        //发送消息
+        amqpTemplate.convertAndSend(EXCHANGE,ROUTING_KEY,messageLog.getMessageBody());
+
     }
 
     @Override

@@ -15,6 +15,7 @@
     <modules>
         <module>fisher-transaction-message</module>
         <module>fisher-transaction-sample</module>
+        <module>fisher-transaction-web</module>
     </modules>
 
 

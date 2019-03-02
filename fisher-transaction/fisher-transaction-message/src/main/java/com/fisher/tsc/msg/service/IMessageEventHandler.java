@@ -12,6 +12,12 @@ public interface IMessageEventHandler {
      */
     void sendMsg(String messageId, String messageBody);
 
+
+    /**
+     * 重新发送消息
+     */
+    void reSendMsg(MessageLog messageLog);
+
     /**
      * 成功消费某消息
      * @param messageLog
