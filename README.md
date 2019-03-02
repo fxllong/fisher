@@ -31,7 +31,7 @@
 
 # 说明
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/code.png)
-
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下
