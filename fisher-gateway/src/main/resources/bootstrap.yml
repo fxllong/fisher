@@ -1,5 +1,5 @@
 server:
-  port: 2004
+  port: 2019
 spring:
   application:
     name: api-gateway
