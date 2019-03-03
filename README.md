@@ -4,6 +4,7 @@
 
 # About
 
+## 技术栈
 此项目是 Spring cloud Oauth2 构建的后台管理系统，计划采用以下技术
 - 注册中心：Nacos
 - 服务网关：Spring cloud-Gateway
@@ -32,13 +33,6 @@
 - fisher-starter 自定义封装各种starer 目前封装了日志处理
 - fisher-gateway 后端统一入口，提供动态路由，oauth2的资源服务器
 
-
-# 说明
-![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
-
-### 基于BASE理论-MQ实现可靠消息最终一致性的分布式事务解决方案架构图
-![index](https://github.com/fanxinglong/fisher/blob/master/docs/tsc.png)
-
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下
@@ -49,11 +43,13 @@
 
 >  传送门：[前端项目地址](https://github.com/fanxinglong/fisher-admin) 
 
-## 技术栈
-Spirng cloud
+# 说明
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
+
+### 基于BASE理论-MQ实现可靠消息最终一致性的分布式事务解决方案架构图
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/tsc.png)
 
 ## 项目运行
-
 
 ```
 git clone https://github.com/fanxinglong/fisher-admin
