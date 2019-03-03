@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
 @Aspect
-@Component
 @Slf4j
 public class SysLogAspect {
 
