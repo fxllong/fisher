@@ -21,4 +21,4 @@ CREATE TABLE `personal_trade_order` (
   PRIMARY KEY (`order_no`),
   KEY `message_id_index` (`message_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `personal_balance_account` VALUES ('1', '0', '2019-01-10 21:01:41', '2019-02-25 21:06:21', '100.00', '201914');
+INSERT INTO `personal_balance_account` VALUES ('1', '0', '2019-01-10 21:01:41', '2019-02-25 21:06:21', '100.00', '10180');

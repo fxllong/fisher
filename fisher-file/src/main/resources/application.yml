@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 spring:
   application:
     name: fisher-upload-service
@@ -22,7 +22,7 @@ qiniu:
 #    height: 60
 #    width: 60
 #  tracker-list:
-#    - 192.168.82.100:22122
+#    - 192.168.12.100:22122
 ---
 spring:
   profiles: dev
