@@ -1,5 +1,5 @@
 # fisher
-基于Spring cloud Oauth2和Element-UI-Admin的后台权限管理框架
+基于Spring cloud Alibaba,Oauth2,基于VUE的后台权限管理框架,集成了基于MQ的可靠消息的分布式事务解决方案。
 - 感兴趣可以加QQ群：591363691
 
 # About
