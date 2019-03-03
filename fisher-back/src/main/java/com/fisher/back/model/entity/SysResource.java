@@ -85,16 +85,16 @@ public class SysResource{
     private String delFlag;
 
 
-//    /**
-//     * 后台请求url
-//     */
-//    private String url;
+    /**
+     * 后台请求url
+     */
+    private String url;
 
 
-//    /**
-//     * 请求方式
-//     */
-//    private String method;
+    /**
+     * 请求方式
+     */
+    private String method;
 
 
 

@@ -85,16 +85,11 @@ hystrix:
       execution:
         isolation:
           thread:
-timeoutInMilliseconds: 60000
-
-
+            timeoutInMilliseconds: 60000
 ignore:
   urls:
     - /**/*.css
     - /auth/**
-    - /tsc/**
-    - /gen/**
-    - /syslog/**
     - /admin/user/**
     - /admin/resource/**
     - /admin/role/**
@@ -111,7 +106,7 @@ swagger:
 # 关闭默认路由
 zuul:
   ignoredServices: '*'
-  sensitiveHeaders:
+  sensitive-headers:
 
 
 ---

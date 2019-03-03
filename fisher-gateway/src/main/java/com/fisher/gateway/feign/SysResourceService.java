@@ -1,6 +1,7 @@
 package com.fisher.gateway.feign;
 
 import com.fisher.common.vo.SysResourceVO;
+import com.fisher.gateway.config.FeignConfig;
 import com.fisher.gateway.feign.fallback.SysResourceFallback;
 import feign.Logger;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Set;
 
-@FeignClient(name = "fisher-user-service", fallback = SysResourceFallback.class,configuration = SysResourceService.UserFeignConfig.class)
+@FeignClient(name = "fisher-user-service",configuration = FeignConfig.class)
 public interface SysResourceService {
 
     /**
@@ -21,11 +22,5 @@ public interface SysResourceService {
     @GetMapping("/resource/role/{roleCode}")
     Set<SysResourceVO> listResourceByRole(@PathVariable("roleCode") String roleCode);
 
-    class UserFeignConfig {
-        @Bean
-        public Logger.Level logger() {
-            return Logger.Level.FULL;
-        }
-    }
 
 }
