@@ -33,6 +33,23 @@
 - fisher-starter 自定义封装各种starer 目前封装了日志处理
 - fisher-gateway 后端统一入口，提供动态路由，oauth2的资源服务器
 
+## 项目运行
+```
+git clone https://github.com/fanxinglong/fisher-admin
+先配置数据库，然后reids，需要启动rabbitmq
+启动顺序：一定要按顺序启动
+先启动Nacos
+fisher-auth
+fisher-back
+fisher-log
+fisher-gen
+fisher-transcation
+fisher-file 
+fisher-gateway
+
+前端启动参照前端项目
+```
+
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下
@@ -49,32 +66,11 @@
 ### 基于BASE理论-MQ实现可靠消息最终一致性的分布式事务解决方案架构图
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/tsc.png)
 
-## 项目运行
-
-```
-git clone https://github.com/fanxinglong/fisher-admin
-
-先配置数据库，然后reids，需要启动rabbitmq
-
-启动顺序：一定要按顺序启动
-先启动Nacos
-fisher-auth
-fisher-back
-fisher-log
-fisher-gen
-fisher-transcation
-fisher-file 
-fisher-gateway
-
-前端启动参照前端项目
-
-```
-
 # 功能列表
 
-- [x] 登陆/注销 -- 完成
+- [x] 登录/注销 -- 完成
 - [x] 权限管理 -- 完成
-- [x] 数据展示 -- 完成
+- [x] 消息管理 -- 完成
 - [x] 日志展示 -- 完成
 - [x] 管理用户 -- 完成
 - [x] 管理员设置 -- 完成
