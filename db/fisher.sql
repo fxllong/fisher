@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.19)
 # Database: cloud
-# Generation Time: 2019-02-26 08:40:46 +0000
+# Generation Time: 2019-03-03 14:36:28 +0000
 # ************************************************************
 
 
@@ -18,6 +18,38 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table sys_dict
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `sys_dict`;
+
+CREATE TABLE `sys_dict` (
+                          `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+                          `desc` varchar(255) DEFAULT NULL COMMENT '字典描述',
+                          `value` varchar(255) DEFAULT NULL COMMENT '字典值',
+                          `parent_id` int(11) NOT NULL COMMENT '上层id  定义默认是-1',
+                          `sort_order` int(11) NOT NULL COMMENT '权重',
+                          `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+                          `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                          `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+                          `del_flag` char(1) DEFAULT '0' COMMENT '是否删除 1-删除，0-未删除',
+                          PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='字典表';
+
+LOCK TABLES `sys_dict` WRITE;
+/*!40000 ALTER TABLE `sys_dict` DISABLE KEYS */;
+
+INSERT INTO `sys_dict` (`id`, `desc`, `value`, `parent_id`, `sort_order`, `remark`, `create_time`, `modify_time`, `del_flag`)
+VALUES
+(8,'性别','sex',-1,100,'备注remark','2019-01-24 14:52:52','2019-01-24 16:58:47','0'),
+(9,'腾讯云短信配置','tecent_sms_config',-1,1,NULL,'2019-01-24 16:08:23',NULL,'0'),
+(10,'阿里云短信配置','aliyun_sms_config',-1,2,NULL,'2019-01-24 16:09:48',NULL,'0'),
+(11,'测试','test',-1,1,NULL,'2019-01-24 17:15:45',NULL,'0');
+
+/*!40000 ALTER TABLE `sys_dict` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table sys_gen_db_config
@@ -148,37 +180,42 @@ CREATE TABLE `sys_resource` (
                               `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
                               `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
                               `del_flag` char(1) DEFAULT '0' COMMENT '是否删除 1-删除，0-未删除',
+                              `url` varchar(128) DEFAULT NULL COMMENT '后端路径',
+                              `method` varchar(11) DEFAULT NULL COMMENT '请求方式',
                               PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='资源表(菜单与按钮)';
 
 LOCK TABLES `sys_resource` WRITE;
 /*!40000 ALTER TABLE `sys_resource` DISABLE KEYS */;
 
-INSERT INTO `sys_resource` (`id`, `name`, `type`, `path`, `permission`, `color`, `parent_id`, `icon`, `component`, `sort`, `create_time`, `modify_time`, `del_flag`)
+INSERT INTO `sys_resource` (`id`, `name`, `type`, `path`, `permission`, `color`, `parent_id`, `icon`, `component`, `sort`, `create_time`, `modify_time`, `del_flag`, `url`, `method`)
 VALUES
-(1,'系统管理','0','/admin','/admin',NULL,-1,'xitongguanli','Layout',2,'2017-11-07 20:56:00','2019-01-31 15:06:45','0'),
-(2,'用户管理','0','user','/admin/user',NULL,1,'yonghuguanli','views/admin/user/index',2,'2017-11-02 22:24:37','2019-01-31 15:06:48','0'),
-(3,'资源管理','0','menu','/admin/resource',NULL,1,'caidanguanli','views/admin/menu/index',3,'2017-11-08 09:57:27','2019-01-31 15:06:50','0'),
-(4,'角色管理','0','role','/admin/role',NULL,1,'jueseguanli','views/admin/role/index',4,'2017-11-08 10:13:37','2019-01-31 15:06:52','0'),
-(5,'日志管理','0','log','/admin/log',NULL,1,'rizhiguanli','views/admin/log/index',5,'2017-11-20 14:06:22','2019-01-31 15:07:27','0'),
-(8,'系统监控','0','/system','/system:view',NULL,-1,'iconbmgl','System',8,'2018-01-22 12:30:41','2019-01-31 15:07:00','0'),
-(9,'查看用户','1',NULL,'/admin/user:select',NULL,2,NULL,NULL,2,'2018-10-17 16:32:36','2018-11-05 15:54:12','0'),
-(10,'测试','0','/a/b','/test',NULL,-1,'xx','/a/b',2,'2018-10-29 20:48:37','2019-01-31 15:07:03','1'),
-(13,'添加用户','1',NULL,'/admin/user:add',NULL,2,NULL,NULL,1,'2018-11-05 15:49:44','2018-11-05 15:54:15','0'),
-(14,'修改用户','1',NULL,'/admin/user:update',NULL,2,NULL,NULL,1,'2018-11-05 15:50:02','2018-11-05 15:54:17','0'),
-(15,'删除用户','1',NULL,'/admin/user:delete',NULL,2,NULL,NULL,5,'2018-11-05 15:50:26','2018-11-05 15:54:19','0'),
-(16,'添加资源','1','/add','/admin/menu:add',NULL,3,'caidanguanli','views/admin/menu/index',0,'2017-11-07 20:56:00','2018-11-05 15:49:01','0'),
-(17,'编辑资源','1',NULL,'/admin/menu:update',NULL,3,NULL,'views/admin/menu/index',1,'2018-11-05 15:50:26','2018-11-06 16:07:43','0'),
-(18,'删除资源','1',NULL,'/admin/menu:delete',NULL,3,NULL,'views/admin/menu/index',1,'2018-11-05 15:50:26','2018-11-05 15:54:19','0'),
-(19,'查询资源','1',NULL,'/admin/menu:select',NULL,3,NULL,'views/admin/menu/index',1,'2018-11-05 15:50:26','2018-11-05 15:54:19','0'),
-(20,'查看资源','1',NULL,'/admin/role:select',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2018-11-05 15:54:19','0'),
-(21,'添加资源','1',NULL,'/admin/role:add',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2018-11-05 15:54:19','0'),
-(22,'编辑资源','1',NULL,'/admin/role:update',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2018-11-06 16:07:37','0'),
-(23,'删除资源','1',NULL,'/admin/role:delete',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2018-11-05 15:54:19','0'),
-(28,'代码生成','0','code','/gen/code',NULL,31,'code','views/gen/code/index',1,'2018-01-22 12:30:41','2019-02-26 13:56:33','0'),
-(29,'查询','1',NULL,'/gen/code:select',NULL,28,NULL,NULL,1,'2018-11-08 18:02:20','2019-02-26 13:39:49','0'),
-(30,'下载','1',NULL,'/gen/code:download',NULL,28,NULL,NULL,1,'2018-11-08 18:02:42','2019-02-26 13:39:51','0'),
-(31,'研发管理','0','/gen','/gen',NULL,-1,'develop','Layout',4,'2018-01-22 12:30:41','2019-02-26 13:57:51','0');
+(1,'系统管理','0','/admin','/admin',NULL,-1,'xitongguanli','Layout',2,'2017-11-07 20:56:00','2019-03-03 17:00:46','0','',NULL),
+(2,'用户管理','0','user','/admin/user',NULL,1,'yonghuguanli','views/admin/user/index',2,'2017-11-02 22:24:37','2019-03-03 17:05:20','0','',NULL),
+(3,'资源管理','0','menu','/admin/resource',NULL,1,'caidanguanli','views/admin/menu/index',3,'2017-11-08 09:57:27','2019-03-03 17:05:21','0','',NULL),
+(4,'角色管理','0','role','/admin/role',NULL,1,'jueseguanli','views/admin/role/index',4,'2017-11-08 10:13:37','2019-03-03 17:05:22','0','',NULL),
+(6,'系统监控','0','/system','/system:view',NULL,-1,'iconbmgl','System',8,'2018-01-22 12:30:41','2019-03-03 22:30:20','0',NULL,NULL),
+(9,'查看用户','1',NULL,'/admin/user:select',NULL,2,NULL,NULL,2,'2018-10-17 16:32:36','2019-03-03 22:06:03','0','/admin/user/*','GET'),
+(10,'测试','0','/a/b','/test',NULL,-1,'xx','/a/b',2,'2018-10-29 20:48:37','2019-01-31 15:07:03','1',NULL,NULL),
+(13,'添加用户','1',NULL,'/admin/user:add',NULL,2,NULL,NULL,1,'2018-11-05 15:49:44','2019-03-03 22:06:42','0','/admin/user/*','POST'),
+(14,'修改用户','1',NULL,'/admin/user:update',NULL,2,NULL,NULL,1,'2018-11-05 15:50:02','2019-03-03 22:07:33','0','/admin/user/*','PUT'),
+(15,'删除用户','1',NULL,'/admin/user:delete',NULL,2,NULL,NULL,5,'2018-11-05 15:50:26','2019-03-03 22:07:40','0','/admin/user/*','DELETE'),
+(16,'添加资源','1','','/admin/menu:add',NULL,3,'caidanguanli','views/admin/menu/index',0,'2017-11-07 20:56:00','2019-03-03 22:07:44','0','/admin/resource/**','POST'),
+(17,'编辑资源','1',NULL,'/admin/menu:update',NULL,3,NULL,'views/admin/menu/index',1,'2018-11-05 15:50:26','2019-03-03 22:07:48','0','/admin/resource/**','PUT'),
+(18,'删除资源','1',NULL,'/admin/menu:delete',NULL,3,NULL,'views/admin/menu/index',1,'2018-11-05 15:50:26','2019-03-03 22:07:53','0','/admin/resource/**','DELETE'),
+(19,'查询资源','1',NULL,'/admin/menu:select',NULL,3,NULL,'views/admin/menu/index',1,'2018-11-05 15:50:26','2019-03-03 22:07:58','0','/admin/resource/**','GET'),
+(20,'查看资源','1',NULL,'/admin/role:select',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2019-03-03 22:08:01','0','/admin/role/**','GET'),
+(21,'添加资源','1',NULL,'/admin/role:add',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2019-03-03 22:08:06','0','/admin/role/**','POST'),
+(22,'编辑资源','1',NULL,'/admin/role:update',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2019-03-03 22:08:09','0','/admin/role/**','PUT'),
+(23,'删除资源','1',NULL,'/admin/role:delete',NULL,4,NULL,'views/admin/role/index',1,'2018-11-05 15:50:26','2019-03-03 22:08:13','0','/admin/role/**','DELETE'),
+(29,'查询','1',NULL,'/gen/code:select',NULL,61,NULL,'views/gen/code/index',1,'2018-11-08 18:02:20','2019-03-03 22:08:18','0','/gen/code/**','GET'),
+(30,'下载','1',NULL,'/gen/code:download',NULL,61,NULL,'views/gen/code/index',1,'2018-11-08 18:02:42','2019-03-03 22:08:22','0','/gen/code/**','POST'),
+(31,'研发管理','0','/gen','/gen',NULL,-1,'develop','Layout',4,'2018-01-22 12:30:41','2019-03-03 22:32:34','0','',NULL),
+(55,'消息管理','0','/tsc','/tsc',NULL,-1,'develop','Layout',2,'2019-03-02 15:07:08','2019-03-03 22:32:28','0','',NULL),
+(57,'消息处理','0','msg','/tsc/msg',NULL,55,'code','views/msg/index',1,'2019-03-02 15:16:38','2019-03-03 22:25:23','0','/tsc/msg/**','POST'),
+(61,'代码生成','0','code','/gen/code',NULL,31,'code','views/gen/code/index',1,'2019-03-03 17:55:21','2019-03-03 22:25:24','0','/gen/code/**','GET'),
+(63,'查看日志','0','log','/syslog/log',NULL,64,'rizhiguanli','views/admin/log/index',1,'2017-11-20 14:06:22','2019-03-03 22:32:10','0','/syslog/log/*','GET'),
+(64,'日志管理','0','/syslog','/syslog',NULL,-1,'rizhiguanli','Layout',5,'2017-11-20 14:06:22','2019-03-03 22:32:29','0','',NULL);
 
 /*!40000 ALTER TABLE `sys_resource` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -232,9 +269,6 @@ VALUES
 (1,2),
 (1,3),
 (1,4),
-(1,5),
-(1,6),
-(1,8),
 (1,9),
 (1,13),
 (1,14),
@@ -247,11 +281,14 @@ VALUES
 (1,21),
 (1,22),
 (1,23),
-(1,24),
-(1,28),
 (1,29),
 (1,30),
 (1,31),
+(1,55),
+(1,57),
+(1,61),
+(1,63),
+(1,64),
 (2,1),
 (2,4),
 (2,8),
@@ -301,7 +338,8 @@ LOCK TABLES `sys_user` WRITE;
 
 INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `mobile`, `qq`, `wechat`, `weibo`, `avatar`, `qq_openid`, `wechat_openid`, `weibo_openid`, `create_time`, `modify_time`, `del_flag`)
 VALUES
-(50,X'666973686572',X'24326124313024326B56374E356B6C6749753646305362485646704A7576682F597A772F6C55734851454B47643166314530716371536E3342713379',NULL,X'3135303739313535363134',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2019-02-22 15:22:44',X'30');
+(50,X'666973686572',X'24326124313024326B56374E356B6C6749753646305362485646704A7576682F597A772F6C55734851454B47643166314530716371536E3342713379',NULL,X'3135303739313535363134',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2019-02-22 15:22:44',X'30'),
+(56,X'737570657232',X'24326124313024322E5A455A6470716739584D6D49474F726C5365512E6E3765747450362E45764C794E39424938425648575461784B6D6751383561',NULL,X'3133393836383631333938',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-03-02 17:07:32',NULL,X'30');
 
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -329,7 +367,8 @@ VALUES
 (51,4),
 (52,2),
 (54,1),
-(55,2);
+(55,2),
+(56,1);
 
 /*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -363,7 +402,8 @@ VALUES
 (4,'/admin/**','fisher-user-service','','1','1','1','','2018-05-21 11:40:38','2019-02-22 17:24:52','0'),
 (5,'/auth/**','fisher-auth','','1','1','1','','2018-05-21 11:41:08','2019-02-22 17:24:49','0'),
 (6,'/syslog/**','fisher-log-service',' ','1','1','1','','2019-02-23 14:29:56','2019-02-23 15:24:54','0'),
-(7,'/gen/**','fisher-gen-service','','1','1','1','','2019-02-26 12:54:11','2019-02-26 13:06:07','0');
+(7,'/gen/**','fisher-gen-service','','1','1','1','','2019-02-26 12:54:11','2019-02-26 13:06:07','0'),
+(8,'/tsc/**','fisher-transaction-web-service','','1','1','1','','2019-03-02 15:01:15','2019-03-02 15:01:51','0');
 
 /*!40000 ALTER TABLE `sys_zuul_route` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -18,7 +18,7 @@ public class SysUserServiceTest {
 
     @Test
     public void findByUsername() {
-        SysUserVo sysUserVo = sysUserService.loadUserByUsername("yukong");
+        SysUserVo sysUserVo = sysUserService.loadUserByUsername("fisher");
         System.out.println("=============="+sysUserVo.getUsername());
     }
 

@@ -14,16 +14,14 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
 @Controller
+//@RequestMapping("/gen")
 @Api(value = "代码生成controller", tags = {"代码生成接口管理"})
 public class SysGenController {
 
@@ -40,7 +38,7 @@ public class SysGenController {
     @ApiOperation(value = "分页查询数据库中所有的表信息", notes = "分页查询数据库中所有的表信息", httpMethod = "GET")
     @ApiImplicitParam(name = "query", value = "表信息查询条件", required = false, dataType = "TableInfoQuery")
     @ResponseBody
-    @GetMapping("/table/page")
+    @GetMapping("/code/page")
     public ApiResult<TableInfoQuery> page(TableInfoQuery query){
         return new ApiResult<>(tableInfoService.pageByQuery(query));
     }
@@ -49,7 +47,7 @@ public class SysGenController {
     @SysLog(serviceId = FisherServiceNameConstants.FISHER_GEN_SERVICE, moduleName = MODULE_NAME, actionName = "根据表名称生成代码  返回zip包")
     @ApiOperation(value = "根据表名称生成代码", notes = "根据表名称生成代码  返回zip包", httpMethod = "POST")
     @ApiImplicitParam(name = "buildConfigDTO", value = "表配置", required = true, dataType = "BuildConfigDTO")
-    @PostMapping("/code")
+    @PostMapping("/code/build")
     public void code(@RequestBody BuildConfigDTO buildConfigDTO, HttpServletResponse response) throws IOException {
 
         byte[] data = sysGenService.genCodeByTableName(buildConfigDTO);

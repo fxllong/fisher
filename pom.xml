@@ -17,6 +17,7 @@
         <module>fisher-starter</module>
         <module>fisher-gen</module>
         <module>fisher-file</module>
+        <module>fisher-transaction</module>
     </modules>
 
     <parent>
@@ -44,6 +45,8 @@
         <spring.cloud.oauth2.version>2.3.3.RELEASE</spring.cloud.oauth2.version>
         <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
         <qcloudsms.version>1.0.5</qcloudsms.version>
+        <futool.version>4.4.1</futool.version>
+        <org.mapstruct.version>1.1.0.Final</org.mapstruct.version>
     </properties>
 
     <dependencyManagement>
@@ -63,9 +66,59 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- MyBatisPlus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-starter.version}</version>
+            </dependency>
+            <!-- mysql驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${org.mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${org.mapstruct.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-pay</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>3.2.0</version>
+            </dependency>
         </dependencies>
-
     </dependencyManagement>
+
+    <!--放在依赖里，所有的子项目就直接依赖了-->
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${futool.version}</version>
+        </dependency>
+    </dependencies>
 
 
 

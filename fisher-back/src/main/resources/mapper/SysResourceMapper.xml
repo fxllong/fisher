@@ -16,8 +16,8 @@
         <result column="create_time" property="createTime"/>
         <result column="modify_time" property="modifyTime"/>
         <result column="del_flag" property="delFlag"/>
-        <!--<result column="url" property="url"/>-->
-        <!--<result column="method" property="method"/>-->
+        <result column="url" property="url"/>
+        <result column="method" property="method"/>
     </resultMap>
 
     <select id="findResourceByRoleCode" resultMap="resourceResultMap">

@@ -40,7 +40,7 @@ mybatis-plus:
       #刷新mapper 调试神器
       #refresh-mapper: true
       #数据库大写下划线转换
-      #capital-mode: true
+      #alipay-mode: true
       # Sequence序列接口实现类配置
       #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
       #逻辑删除配置（下面3个配置）

@@ -1,0 +1,64 @@
+server:
+  port: 8008
+spring:
+  application:
+    name: fisher-transaction-web-service
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:
+    active: dev
+  aop:
+    proxy-target-class: true
+    auto: true
+  thymeleaf:
+    mode: HTML
+    suffix: .html
+    cache: false
+ribbon:
+  eager-load:
+    enabled: true
+    clients: fisher-transaction-service
+  Httpclient:
+    enabled: true
+  OkHttp:
+    enabled: false
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: false
+  httpclient:
+    enabled: true
+  client:
+    config:
+      feignName:
+        connectTimeout: 30000
+        readTimeout: 30000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 800
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+timeoutInMilliseconds: 60000
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
