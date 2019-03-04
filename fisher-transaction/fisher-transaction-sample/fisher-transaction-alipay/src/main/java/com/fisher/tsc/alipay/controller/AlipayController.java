@@ -21,11 +21,10 @@ public class AlipayController {
 
     @PostMapping("transferAlipayToPersonal/{amount}")
     public ResponseEntity tranferToBalanceTreasure(@PathVariable BigDecimal amount){
-        Long userId = 201914L;
+        Long userId = 10180L;
         String messageId = iAlipayService.transferAlipayToPersonalBalance(userId, amount);
         //异常测试，抛个异常
 //        int i = 1/0;
-//         throw new NullPointerException("出现了空指针异常");
         //确认提交消息 通知个人账户进行加款
         alipayMessageClient.confirmAndSendMessage(messageId);
         return ResponseEntity.ok("success");
