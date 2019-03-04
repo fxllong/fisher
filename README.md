@@ -14,14 +14,14 @@
 - 熔断降级：Sentinel
 - 链路追踪：Skywalking
 - 消息队列：RabbitMQ
-- 权限认证：Spring secruity oauth2
-- 部署：docker+rancher1.6
+- 权限认证：Spring secruity Oauth2
+- 部署：Docker+Rancher
 
 # 项目结构说明
 - fisher-center Eureka服务注册中心,该工程已经删除
   注册中心已替换成Nacos
 - fisher-common 公共模块
-- fisher-auth  oauth2 认证服务器 提供token
+- fisher-auth  Oauth2 认证服务器 提供token
 - fisher-back 后台管理模块
 - fisher-transcation 基于mq最终一致性实现可靠消息的分布式事务方案
   - fisher-transaction-message 独立消息服务微服务
