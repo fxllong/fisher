@@ -4,6 +4,7 @@ package com.fisher.auth.config;
 import com.fisher.auth.handler.CustomWebResponseExceptionTranslator;
 import com.fisher.auth.security.UserDetailsImpl;
 import com.fisher.common.constants.FisherServiceNameConstants;
+import com.fisher.common.constants.MqQueueNameConstant;
 import com.fisher.common.constants.SecurityConstants;
 import com.fisher.common.constants.UserConstants;
 import com.fisher.common.dto.SysLogDTO;
@@ -11,6 +12,7 @@ import com.fisher.common.enums.OperationStatusEnum;
 import com.fisher.common.enums.SysLogTypeEnum;
 import com.fisher.common.util.UrlUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -58,6 +60,9 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
     /**
      * 配置token存储到redis中
      * @return
@@ -65,7 +70,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
     @Bean
     public RedisTokenStore redisTokenStore() {
         RedisTokenStore store = new RedisTokenStore(redisConnectionFactory);
-//        store.setPrefix(SecurityConstants.CLOUD_PREFIX);
+        store.setPrefix(SecurityConstants.CLOUD_PREFIX);
         return store;
     }
 
@@ -144,7 +149,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                         .setServiceId(FisherServiceNameConstants.FISHER_AUTH)
                         .setRemoteAddr(UrlUtil.getRemoteHost(request))
                         .setMethod(request.getMethod());
-//                rabbitTemplate.convertAndSend(MqQueueNameConstant.SYS_LOG_QUEUE, sysLogDTO);
+                rabbitTemplate.convertAndSend(MqQueueNameConstant.SYS_LOG_QUEUE, sysLogDTO);
                 log.info("当前用户为：{}", user);
                 // 如果用户不为空 则把id放入jwt token中
                 if (user != null) {
