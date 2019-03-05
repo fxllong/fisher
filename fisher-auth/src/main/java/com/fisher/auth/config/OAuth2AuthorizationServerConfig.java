@@ -70,7 +70,6 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
     @Bean
     public RedisTokenStore redisTokenStore() {
         RedisTokenStore store = new RedisTokenStore(redisConnectionFactory);
-        store.setPrefix(SecurityConstants.CLOUD_PREFIX);
         return store;
     }
 
