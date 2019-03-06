@@ -6,7 +6,7 @@
 # https://github.com/sequelpro/sequelpro
 #
 # Host: 127.0.0.1 (MySQL 5.7.19)
-# Database: cloud
+# Database: fisher
 # Generation Time: 2019-03-03 14:36:28 +0000
 # ************************************************************
 

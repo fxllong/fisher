@@ -14,7 +14,7 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/cloud?useUnicode=true&useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/fisher?useUnicode=true&useSSL=false&characterEncoding=utf8
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml

@@ -11,7 +11,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
+    url: jdbc:mysql://localhost:3306/fisher?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
