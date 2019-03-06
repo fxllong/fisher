@@ -20,4 +20,4 @@ CREATE TABLE `alipay_trade_order` (
   `remark` varchar(200) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`order_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `alipay_account` VALUES ('1', '2', '2019-01-10 21:02:30', '2019-02-26 21:06:21', '2000000.00', '201914');
+INSERT INTO `alipay_account` VALUES ('1', '2', '2019-01-10 21:02:30', '2019-02-26 21:06:21', '2000000.00', '10180');

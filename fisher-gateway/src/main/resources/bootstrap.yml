@@ -50,7 +50,7 @@ redis:
 ribbon:
   eager-load:
     enabled: true
-    clients: fisher-auth,fisher-user-service
+    clients: fisher-auth-service,fisher-user-service
   Httpclient:
     enabled: true
   OkHttp:

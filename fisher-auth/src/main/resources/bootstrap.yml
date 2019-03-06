@@ -2,7 +2,7 @@ server:
   port: 6868
 spring:
   application:
-    name: fisher-auth
+    name: fisher-auth-service
   rabbitmq:
     host: 127.0.0.1
     port: 5672
@@ -44,7 +44,7 @@ redis:
 ribbon:
   eager-load:
     enabled: true
-    clients: fisher-auth,fisher-user-service
+    clients: fisher-auth-service,fisher-user-service
   Httpclient:
     enabled: true
   OkHttp:

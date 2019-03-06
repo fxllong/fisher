@@ -10,9 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
-public class FisherAuthApplication {
+public class FisherAuthServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FisherAuthApplication.class, args);
+		SpringApplication.run(FisherAuthServiceApplication.class, args);
 	}
 }
