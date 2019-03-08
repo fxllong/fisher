@@ -13,6 +13,7 @@ import com.fisher.common.enums.DataStatusEnum;
 import com.fisher.common.enums.ResourceTypeEnum;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -75,6 +76,7 @@ public class SysResourceServiceImpl  extends ServiceImpl<SysResourceMapper, SysR
     }
 
     @Override
+    @Cacheable(key = "'cache_role' + #roleCode", value = "roleResourceCache", cacheManager = "cacheManager")
     public List<SysResource> findResourceByRoleCode(String roleCode) {
         return sysResourceMapper.findResourceByRoleCode(roleCode);
     }

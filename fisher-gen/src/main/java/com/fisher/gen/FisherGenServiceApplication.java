@@ -9,10 +9,10 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.fisher.gen", "com.fisher.common"})
 @SpringBootApplication
 @EnableDiscoveryClient
-public class FisherGenApplication {
+public class FisherGenServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FisherGenApplication.class, args);
+        SpringApplication.run(FisherGenServiceApplication.class, args);
     }
 
 }

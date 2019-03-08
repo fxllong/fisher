@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * </p>
  *
  */
-@FeignClient(name = "fisher-user-service", fallback = SysUserServiceFallback.class,configuration = SysUserService.UserFeignConfig.class)
+@FeignClient(name = "fisher-back-service", fallback = SysUserServiceFallback.class,configuration = SysUserService.UserFeignConfig.class)
 
 public interface SysUserService {
 

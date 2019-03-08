@@ -1,90 +1,11 @@
-#tomacat相关配置
-server:
-  port: 6868
-  tomcat:
-    max-threads: 500 # Maximum amount of worker threads.
-    min-spare-threads: 50 # Minimum amount of worker threads
-#应用基本配置
 spring:
   application:
     name: fisher-auth-service
-#reids配置
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password:
-#rabbitmq配置
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: fisher
-    password: fisher
-#数据源配置
-  datasource:
-    url: jdbc:mysql://localhost:3306/fisher?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    hikari:
-      minimum-idle: 0
-#激活配置
-  profiles:
-    active: dev
-#feign日志打印
-logging:
-  level:
-    com.fisher.auth.service.SysUserService: debug
-#文件上传配置
-#  http:
-#    multipart:
-#      max-file-size: 1000MB
-#      max-request-size: 1000MB
-ribbon:
-  eager-load:
-    enabled: true
-    clients: fisher-auth-service,fisher-user-service
-  Httpclient:
-    enabled: true
-  OkHttp:
-    enabled: false
-  ReadTimeout: 10000
-  ConnectTimeout: 10000
-
-feign:
-  hystrix:
-    enabled: true
-  okhttp:
-    enabled: false
-  httpclient:
-    enabled: true
-  client:
-    config:
-      feignName:
-        connectTimeout: 30000
-        readTimeout: 30000
-  compression:
-    request:
-      enabled: true
-    response:
-      enabled: true
-
-hystrix:
-  threadpool:
-    default:
-      coreSize: 500
-      maxQueueSize: 1000
-      queueSizeRejectionThreshold: 800
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-timeoutInMilliseconds: 60000
-
----
-spring:
-  profiles: dev
   cloud:
     nacos:
-      discovery:
+      config:
         server-addr: 127.0.0.1:8848
+        file-extension: yml
+        group: AUTH_GROUP
+  profiles:
+    active: dev

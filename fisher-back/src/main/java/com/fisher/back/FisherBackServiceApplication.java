@@ -10,9 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.fisher.back", "com.fisher.common"})
-public class FisherUserServiceApplication {
+public class FisherBackServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FisherUserServiceApplication.class, args);
+        SpringApplication.run(FisherBackServiceApplication.class, args);
     }
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @Accessors(chain = true)
-public class SysResource{
+public class SysResource implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

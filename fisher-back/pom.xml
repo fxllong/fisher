@@ -26,8 +26,17 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.fisher.starter</groupId>
             <artifactId>fisher-log-spring-boot-starter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fisher.starter</groupId>
+            <artifactId>fisher-cache-spring-boot-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
