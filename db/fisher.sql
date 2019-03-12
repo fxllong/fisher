@@ -30,16 +30,10 @@ CREATE TABLE `sys_oauth_client_details` (
                                           PRIMARY KEY (`client_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
-LOCK TABLES `sys_oauth_client_details` WRITE;
-/*!40000 ALTER TABLE `sys_oauth_client_details` DISABLE KEYS */;
 
 INSERT INTO `sys_oauth_client_details` (`client_id`, `resources_ids`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `addition_information`, `autoapprove`)
 VALUES
 ('cloud',NULL,'$2a$10$X1HOPGX6ADkQn4rvtk.C4uaz8vF1TdpY2aP/iC.3UKlonvco/k9e.','server','password,refresh_token,authorization_code',NULL,NULL,NULL,NULL,NULL,'false');
-
-/*!40000 ALTER TABLE `sys_oauth_client_details` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 # Dump of table sys_resource
 # ------------------------------------------------------------
@@ -65,8 +59,6 @@ CREATE TABLE `sys_resource` (
                               PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='资源表';
 
-LOCK TABLES `sys_resource` WRITE;
-/*!40000 ALTER TABLE `sys_resource` DISABLE KEYS */;
 
 INSERT INTO `sys_resource` (`id`, `name`, `type`, `path`, `permission`, `color`, `parent_id`, `icon`, `component`, `sort`, `create_time`, `modify_time`, `del_flag`, `url`, `method`)
 VALUES
@@ -97,9 +89,6 @@ VALUES
 (63,'查看日志','0','log','/syslog/log',NULL,64,'rizhiguanli','views/admin/log/index',1,'2017-11-20 14:06:22','2019-03-03 22:32:10','0','/syslog/log/*','GET'),
 (64,'日志管理','0','/syslog','/syslog',NULL,-1,'rizhiguanli','Layout',5,'2017-11-20 14:06:22','2019-03-03 22:32:29','0','',NULL);
 
-/*!40000 ALTER TABLE `sys_resource` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 # Dump of table sys_role
 # ------------------------------------------------------------
@@ -116,17 +105,11 @@ CREATE TABLE `sys_role` (
                           PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='角色表';
 
-LOCK TABLES `sys_role` WRITE;
-/*!40000 ALTER TABLE `sys_role` DISABLE KEYS */;
-
 INSERT INTO `sys_role` (`role_id`, `role_code`, `role_name`, `create_time`, `modify_time`, `del_flag`)
 VALUES
 (1,'ROLE_ADMIN','管理员用户','2018-10-16 17:47:54','2018-11-02 16:38:27','0'),
 (2,'ROLE_DEMO','测试用户','2018-10-16 17:48:12','2019-02-23 18:03:40','0'),
 (4,'ROLE_TEST','test','2018-11-06 15:05:30',NULL,'0');
-
-/*!40000 ALTER TABLE `sys_role` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table sys_role_resource
@@ -140,8 +123,6 @@ CREATE TABLE `sys_role_resource` (
                                    PRIMARY KEY (`role_id`,`resource_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='角色资源关联表';
 
-LOCK TABLES `sys_role_resource` WRITE;
-/*!40000 ALTER TABLE `sys_role_resource` DISABLE KEYS */;
 
 INSERT INTO `sys_role_resource` (`role_id`, `resource_id`)
 VALUES
@@ -182,9 +163,6 @@ VALUES
 (4,19),
 (4,20);
 
-/*!40000 ALTER TABLE `sys_role_resource` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 # Dump of table sys_user
 # ------------------------------------------------------------
@@ -213,16 +191,11 @@ CREATE TABLE `sys_user` (
                           UNIQUE KEY `user_idx_emal` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC COMMENT='用户表';
 
-LOCK TABLES `sys_user` WRITE;
-/*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
 
 INSERT INTO `sys_user` (`user_id`, `username`, `password`, `email`, `mobile`, `qq`, `wechat`, `weibo`, `avatar`, `qq_openid`, `wechat_openid`, `weibo_openid`, `create_time`, `modify_time`, `del_flag`)
 VALUES
 (50,X'666973686572',X'24326124313024326B56374E356B6C6749753646305362485646704A7576682F597A772F6C55734851454B47643166314530716371536E3342713379',NULL,X'3135303739313535363134',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-10-08 16:45:43','2019-02-22 15:22:44',X'30'),
 (56,X'737570657232',X'24326124313024322E5A455A6470716739584D6D49474F726C5365512E6E3765747450362E45764C794E39424938425648575461784B6D6751383561',NULL,X'3133393836383631333938',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-03-02 17:07:32',NULL,X'30');
-
-/*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table sys_user_role
@@ -236,8 +209,6 @@ CREATE TABLE `sys_user_role` (
                                PRIMARY KEY (`user_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='用户角色关联表';
 
-LOCK TABLES `sys_user_role` WRITE;
-/*!40000 ALTER TABLE `sys_user_role` DISABLE KEYS */;
 
 INSERT INTO `sys_user_role` (`user_id`, `role_id`)
 VALUES
@@ -249,9 +220,6 @@ VALUES
 (54,1),
 (55,2),
 (56,1);
-
-/*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table sys_zuul_route
@@ -274,8 +242,6 @@ CREATE TABLE `sys_zuul_route` (
                                 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='动态路由配置表';
 
-LOCK TABLES `sys_zuul_route` WRITE;
-/*!40000 ALTER TABLE `sys_zuul_route` DISABLE KEYS */;
 
 INSERT INTO `sys_zuul_route` (`id`, `path`, `service_id`, `url`, `strip_prefix`, `retryable`, `enabled`, `sensitiveHeaders_list`, `create_time`, `update_time`, `del_flag`)
 VALUES
@@ -284,6 +250,3 @@ VALUES
 (6,'/syslog/**','fisher-log-service',' ','1','1','1','','2019-02-23 14:29:56','2019-02-23 15:24:54','0'),
 (7,'/gen/**','fisher-gen-service','','1','1','1','','2019-02-26 12:54:11','2019-02-26 13:06:07','0'),
 (8,'/tsc/**','fisher-transaction-web-service','','1','1','1','','2019-03-02 15:01:15','2019-03-02 15:01:51','0');
-
-/*!40000 ALTER TABLE `sys_zuul_route` ENABLE KEYS */;
-UNLOCK TABLES;

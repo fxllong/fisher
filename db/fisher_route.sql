@@ -17,9 +17,6 @@ CREATE TABLE `sys_zuul_route` (
                                 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='动态路由配置表';
 
-LOCK TABLES `sys_zuul_route` WRITE;
-/*!40000 ALTER TABLE `sys_zuul_route` DISABLE KEYS */;
-
 INSERT INTO `sys_zuul_route` (`id`, `path`, `service_id`, `url`, `strip_prefix`, `retryable`, `enabled`, `sensitiveHeaders_list`, `create_time`, `update_time`, `del_flag`)
 VALUES
 (4,'/admin/**','fisher-back-service','','1','1','1','','2018-05-21 11:40:38','2019-02-22 17:24:52','0'),

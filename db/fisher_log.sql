@@ -27,8 +27,6 @@ CREATE TABLE `sys_log` (
                          KEY `sys_log_create_date` (`create_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='日志表';
 
-LOCK TABLES `sys_log` WRITE;
-/*!40000 ALTER TABLE `sys_log` DISABLE KEYS */;
 
 INSERT INTO `sys_log` (`id`, `type`, `status`, `module_name`, `action_name`, `service_id`, `remote_addr`, `user_agent`, `request_uri`, `method`, `params`, `time`, `exception`, `del_flag`, `create_by`, `create_time`, `update_time`)
 VALUES
