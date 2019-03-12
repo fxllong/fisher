@@ -1,4 +1,4 @@
-package com.fisher.monitor.config;
+package com.fisher.boot.admin.config;
 
 import de.codecentric.boot.admin.server.config.AdminServerProperties;
 import org.springframework.context.annotation.Configuration;
