@@ -1,4 +1,4 @@
-# Database: fisher_log
+# Database: fisher_route
 
 DROP TABLE IF EXISTS `sys_zuul_route`;
 
