@@ -19,6 +19,7 @@
         <module>fisher-file</module>
         <module>fisher-transaction</module>
         <module>fisher-monitor</module>
+        <module>fisher-monitor</module>
     </modules>
 
     <parent>

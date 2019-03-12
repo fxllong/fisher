@@ -80,7 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         });
        config
                 .antMatchers("/auth/**").permitAll()
-                .antMatchers("/say/**").permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated()
 //                .and()
 //               .headers().frameOptions().disable()

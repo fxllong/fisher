@@ -11,6 +11,10 @@
 
     <groupId>com.fisher.monitor</groupId>
     <artifactId>fisher-monitor</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>fisher-boot-admin</module>
+    </modules>
 
 
 </project>

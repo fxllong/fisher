@@ -1,0 +1,28 @@
+server:
+  port: 9006
+  tomcat:
+    max-threads: 500 # Maximum amount of worker threads.
+    min-spare-threads: 50 # Minimum amount of worker threads
+#应用基本配置
+spring:
+  application:
+    name: fisher-monitor-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+          user.name: ${spring.security.user.name}
+          user.password: ${spring.security.user.password}
+  security:
+    user:
+      name: "fisher"
+      password: "fisher"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

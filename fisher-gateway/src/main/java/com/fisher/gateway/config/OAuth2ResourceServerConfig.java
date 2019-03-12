@@ -75,7 +75,7 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
             config.antMatchers(e).permitAll();
         });
         // 前后分离 先发出options 放行
-        config.antMatchers(HttpMethod.OPTIONS,"/**","/auth/**","/admin/**").permitAll()
+        config.antMatchers(HttpMethod.OPTIONS,"/**","/auth/**","/admin/**","/actuator/**").permitAll()
                 .anyRequest().access("@permissionService.hasPermission(request,authentication)");
 
     }
