@@ -14,9 +14,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>fisher-log-spring-boot-starter-parent</module>
-        <module>fisher-log-spring-boot-starter-parent</module>
-        <module>fisher-log-spring-boot-starter-parent</module>
-        <module>fisher-MultiLevelCache-springboot-starter-parent</module>
         <module>fisher-cache-spring-boot-starter-parent</module>
         <module>fisher-lock-springboot-starter-parent</module>
     </modules>

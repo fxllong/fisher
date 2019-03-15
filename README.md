@@ -27,6 +27,7 @@
   - fisher-transaction-message 独立消息服务微服务
   - fisher-transaction-sample 基于支付宝转账的演示
   - fisher-transaction-sample 消息补偿管理后台
+- fisher-monitor Spring boot admin监控以及Skywalking监控
 - fisher-log 日志中心模块
 - fisher-file 文件上传服务,这个服务可以暂时不起，因为前端还没有对接
 - fisher-gen 代码生成模块
@@ -43,6 +44,7 @@ fisher-auth
 fisher-back
 fisher-log
 fisher-gen
+fisher-monitor
 fisher-transcation
 fisher-file 
 fisher-gateway
