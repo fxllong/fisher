@@ -1,7 +1,7 @@
 # Ncoas1.0尝试说明
 
 
-## 修改了三个模块作为实例
+## 修改了三个模块作为示例
 - 认证中心：fisher-auth-service
 - 后台管理：fisher-back-service
 - 网关服务：isher-gateway-service
