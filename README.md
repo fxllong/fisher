@@ -63,6 +63,7 @@ fisher-gateway
 >  传送门：[前端项目地址](https://github.com/fanxinglong/fisher-admin) 
 
 # 说明
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/fisher-ac.png)
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/admin.png)
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/skywalking.png)
