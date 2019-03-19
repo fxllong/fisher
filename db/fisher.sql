@@ -25,7 +25,7 @@ CREATE TABLE `sys_oauth_client_details` (
                                           `authorities` varchar(256) DEFAULT NULL,
                                           `access_token_validity` int(11) DEFAULT NULL,
                                           `refresh_token_validity` int(11) DEFAULT NULL,
-                                          `addition_information` varchar(4096) DEFAULT NULL,
+                                          `addition_information` varchar(1000) DEFAULT NULL,
                                           `autoapprove` varchar(256) DEFAULT NULL,
                                           PRIMARY KEY (`client_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
