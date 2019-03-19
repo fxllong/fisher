@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.fisher.starter</groupId>
-            <artifactId>fisher-log-spring-boot-starter</artifactId>
+            <artifactId>fisher-log-spring-boot-autoconfigure</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
