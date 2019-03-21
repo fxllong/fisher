@@ -15,7 +15,7 @@
 - 链路追踪：Skywalking
 - 消息队列：RabbitMQ
 - 权限认证：Spring secruity Oauth2
-- 部署：Docker+Rancher+K8S
+- 项目部署：Docker+Rancher+K8S
 
 # 项目结构说明
 - fisher-center Eureka服务注册中心,该工程已经删除
