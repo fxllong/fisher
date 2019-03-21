@@ -37,7 +37,7 @@
 ## 项目运行
 ```
 git clone https://github.com/fanxinglong/fisher
-先配置数据库，然后reids，需要启动rabbitmq
+先配置数据库，然后reids，需要启动rabbitmq,启动nacos,启动sentinel
 启动顺序：最好按顺序启动，不按顺序启动，至少要把网关放到最后启动
 注意：Nacos先修改配置连自己本地数据库，并把nacos的配置数据库导入到自己本地数据库
 导入之后，检查nacos各个微服务相关配置的mysql，redis,rabbitmq配置是否正确
