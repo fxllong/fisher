@@ -65,11 +65,17 @@ fisher-gateway
 
 # 说明
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/fisher-ac.png)
+
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
+
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/sentinel.png)
+
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/admin.png)
+
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/skywalking.png)
+
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/skywalking1.png)
+
 ### 基于BASE理论-MQ实现可靠消息最终一致性的分布式事务解决方案架构图
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/tsc.png)
 
