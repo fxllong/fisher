@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Set;
 
-@FeignClient(name = "fisher-back-service",configuration = FeignConfig.class)
+@FeignClient(name = "fisher-back-service",fallback = SysResourceFallback.class, configuration = FeignConfig.class)
 public interface SysResourceService {
 
     /**
