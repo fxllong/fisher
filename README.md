@@ -68,7 +68,7 @@ fisher-gateway
 
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
 
-![index](https://github.com/fanxinglong/fisher/blob/master/docs/sentinel.png)
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/sentinel_.png)
 
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/admin.png)
 
