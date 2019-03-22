@@ -15,7 +15,7 @@
 - 链路追踪：Skywalking
 - 消息队列：RabbitMQ
 - 权限认证：Spring secruity Oauth2
-- 部署：Docker+Rancher
+- 项目部署：Docker+Rancher+K8S
 
 # 项目结构说明
 - fisher-center Eureka服务注册中心,该工程已经删除
@@ -66,18 +66,18 @@ fisher-gateway
 # 说明
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/fisher-ac.png)
 
+### 基于BASE理论-MQ实现可靠消息最终一致性的分布式事务解决方案架构图
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/tsc.png)
+
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/msg.png)
 
-![index](https://github.com/fanxinglong/fisher/blob/master/docs/sentinel.png)
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/sentinel_.png)
 
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/admin.png)
 
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/skywalking.png)
 
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/skywalking1.png)
-
-### 基于BASE理论-MQ实现可靠消息最终一致性的分布式事务解决方案架构图
-![index](https://github.com/fanxinglong/fisher/blob/master/docs/tsc.png)
 
 # 功能列表
 
