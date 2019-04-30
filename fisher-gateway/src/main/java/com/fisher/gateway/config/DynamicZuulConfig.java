@@ -25,7 +25,7 @@ public class DynamicZuulConfig {
 
     @Bean
     public DynamicRouteLocator dynamicRouteLocator() {
-        return new DynamicRouteLocator(server.getServlet().getServletPrefix(), zuulProperties, jdbcTemplate);
+        return new DynamicRouteLocator(server.getServlet().getContextPath(), zuulProperties, jdbcTemplate);
     }
 
 

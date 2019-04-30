@@ -13,10 +13,7 @@
     <artifactId>fisher-cache-spring-boot-starter</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.fisher.starter</groupId>
             <artifactId>fisher-cache-spring-boot-autoconfigure</artifactId>

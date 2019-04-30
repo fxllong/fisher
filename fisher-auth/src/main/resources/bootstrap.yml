@@ -9,3 +9,6 @@ spring:
         group: AUTH_GROUP
   profiles:
     active: dev
+  main:
+    allow-bean-definition-overriding: true
+

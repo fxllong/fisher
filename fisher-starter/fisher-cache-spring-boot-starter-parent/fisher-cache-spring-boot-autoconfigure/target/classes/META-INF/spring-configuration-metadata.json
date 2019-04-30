@@ -1,104 +1,104 @@
 {
-  "hints": [],
   "groups": [
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
       "name": "spring.cache.multi",
-      "type": "com.fisher.cache.CacheRedisCaffeineProperties"
+      "type": "com.fisher.cache.CacheRedisCaffeineProperties",
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties"
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
       "name": "spring.cache.multi.caffeine",
-      "sourceMethod": "getCaffeine()",
-      "type": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine"
+      "type": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
+      "sourceMethod": "getCaffeine()"
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
       "name": "spring.cache.multi.redis",
-      "sourceMethod": "getRedis()",
-      "type": "com.fisher.cache.CacheRedisCaffeineProperties$Redis"
+      "type": "com.fisher.cache.CacheRedisCaffeineProperties$Redis",
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
+      "sourceMethod": "getRedis()"
     }
   ],
   "properties": [
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
       "name": "spring.cache.multi.cache-names",
-      "type": "java.util.Set<java.lang.String>"
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties"
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
-      "defaultValue": true,
       "name": "spring.cache.multi.cache-null-values",
+      "type": "java.lang.Boolean",
       "description": "是否存储空值，默认true，防止缓存穿透",
-      "type": "java.lang.Boolean"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
+      "defaultValue": true
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
       "name": "spring.cache.multi.cache-prefix",
+      "type": "java.lang.String",
       "description": "缓存key的前缀",
-      "type": "java.lang.String"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties"
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
-      "defaultValue": 0,
       "name": "spring.cache.multi.caffeine.expire-after-access",
+      "type": "java.lang.Long",
       "description": "访问后过期时间，单位毫秒",
-      "type": "java.lang.Long"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
+      "defaultValue": 0
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
-      "defaultValue": 0,
       "name": "spring.cache.multi.caffeine.expire-after-write",
+      "type": "java.lang.Long",
       "description": "写入后过期时间，单位毫秒",
-      "type": "java.lang.Long"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
+      "defaultValue": 0
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
-      "defaultValue": 0,
       "name": "spring.cache.multi.caffeine.initial-capacity",
+      "type": "java.lang.Integer",
       "description": "初始化大小",
-      "type": "java.lang.Integer"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
+      "defaultValue": 0
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
-      "defaultValue": 0,
       "name": "spring.cache.multi.caffeine.maximum-size",
+      "type": "java.lang.Long",
       "description": "最大缓存对象个数，超过此数量时之前放入的缓存将失效",
-      "type": "java.lang.Long"
-    },
-    {
       "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
-      "defaultValue": 0,
+      "defaultValue": 0
+    },
+    {
       "name": "spring.cache.multi.caffeine.refresh-after-write",
+      "type": "java.lang.Long",
       "description": "写入后刷新时间，单位毫秒",
-      "type": "java.lang.Long"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Caffeine",
+      "defaultValue": 0
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
-      "defaultValue": true,
       "name": "spring.cache.multi.dynamic",
+      "type": "java.lang.Boolean",
       "description": "是否动态根据cacheName创建Cache的实现，默认true",
-      "type": "java.lang.Boolean"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties",
+      "defaultValue": true
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Redis",
-      "defaultValue": 0,
       "name": "spring.cache.multi.redis.default-expiration",
+      "type": "java.lang.Long",
       "description": "全局过期时间，单位毫秒，默认不过期",
-      "type": "java.lang.Long"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Redis",
+      "defaultValue": 0
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Redis",
       "name": "spring.cache.multi.redis.expires",
+      "type": "java.util.Map<java.lang.String,java.lang.Long>",
       "description": "每个cacheName的过期时间，单位毫秒，优先级比defaultExpiration高",
-      "type": "java.util.Map<java.lang.String,java.lang.Long>"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Redis"
     },
     {
-      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Redis",
-      "defaultValue": "cache:redis:caffeine:topic",
       "name": "spring.cache.multi.redis.topic",
+      "type": "java.lang.String",
       "description": "缓存更新时通知其他节点的topic名称",
-      "type": "java.lang.String"
+      "sourceType": "com.fisher.cache.CacheRedisCaffeineProperties$Redis",
+      "defaultValue": "cache:redis:caffeine:topic"
     }
-  ]
+  ],
+  "hints": []
 }
