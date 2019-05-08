@@ -95,3 +95,4 @@ fisher-gateway
 
 如果觉得本项目对您有帮助，您的鼓励是作者持续更新的动力，谢谢！
 
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/zx.png)
