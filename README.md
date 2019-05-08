@@ -91,3 +91,10 @@ fisher-gateway
 - [x] 日志记录 -- 完成
 - [x] 代码生成 -- 完成
 
+# 捐赠
+
+如果觉得本项目对您有帮助，请小小鼓励下项目作者，谢谢！
+
+支付宝码(左)和微信钱包码(右)
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/zfb.png)
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/wx.png)
