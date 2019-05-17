@@ -26,7 +26,7 @@ public class SysUserServiceTest {
     @Test
     public void testPassword() {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String password = passwordEncoder.encode("fisher");
+        String password = passwordEncoder.encode("adminFAN262553");
         System.out.println("=============="+password);
     }
 

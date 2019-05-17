@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 127.0.0.1:8848
+        server-addr: 47.92.174.87:8848
         file-extension: yml
         group: GATE_GROUP
   profiles:
