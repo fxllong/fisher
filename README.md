@@ -76,6 +76,8 @@ fisher-gateway
 
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/admin.png)
 
+![index](https://github.com/fanxinglong/fisher/blob/master/docs/k8s.png)
+
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/skywalking.png)
 
 ![index](https://github.com/fanxinglong/fisher/blob/master/docs/skywalking1.png)
