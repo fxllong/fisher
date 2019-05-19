@@ -5,6 +5,9 @@
 - 体验地址如下：http://39.98.217.217:8082 用户名:fisher 密码:fisher
 # About
 
+有关文档以及其他相关事宜可以以查看官网相关介绍
+>  传送门：[fisher官方网站](https://fisher-allen.github.io/fisher-docs/#/) 
+
 ## 技术栈
 此项目是 Spring cloud Oauth2 构建的后台管理系统，计划采用以下技术
 - 注册中心：Nacos
@@ -53,9 +56,6 @@ fisher-gateway
 
 前端启动参照前端项目
 ```
-
-有关文档以及其他相关事宜可以以查看官网相关介绍
->  传送门：[fisher官方网站](http://39.98.217.217:3000) 
 
 >  如果对您对此项目有兴趣，可以点 "Star" 支持一下 谢谢！ ^_^
 
