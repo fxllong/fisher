@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class TimestampUtil {
 
-	public static final Timestamp current(){
+	public static final Timestamp getCurrentTimestamp(){
 		return new Timestamp(System.currentTimeMillis());
 	}
 }
