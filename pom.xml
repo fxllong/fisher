@@ -46,7 +46,7 @@
         <spring.cloud.oauth2.version>2.3.3.RELEASE</spring.cloud.oauth2.version>
         <spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
         <qcloudsms.version>1.0.5</qcloudsms.version>
-        <futool.version>4.4.1</futool.version>
+        <futool.version>5.8.21</futool.version>
         <org.mapstruct.version>1.1.0.Final</org.mapstruct.version>
     </properties>
 
